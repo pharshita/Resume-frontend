@@ -7,6 +7,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import axios from 'axios';
 import  user  from '../images/user.jpeg'
+import { BASE_URL } from '../config';
 
 
 export default function Resume4() {
@@ -19,7 +20,13 @@ export default function Resume4() {
     useEffect(() => {
         const id = window.localStorage.getItem('id')
         // console.log(id)
-        axios.get(`http://127.0.0.1:8000/api/resume/${id}/`, config).then((res) => {
+           
+        let ngrok="https://4d4f-2405-201-300b-7072-7568-f976-cbbf-7a4d.in.ngrok.io"
+        let url="http://127.0.0.1:8000"
+        // http://127.0.0.1:8000/api/resume/1/
+        axios.get(` ${BASE_URL}/api/resume/${id}/`, config).then((res) => {
+          // axios.get(` ${ngrok}/api/resume/${id}/`, config).then((res) => {
+
             setdata([res.data])
         }).catch((err) => {
             console.log(err)
@@ -255,6 +262,7 @@ export default function Resume4() {
                                                     <h5>{items.Experience[0].project_name}</h5>
 
                                                     {
+                                                        getdata === null ? " " :
                                                         getdata.map((item, key) => {
                                                             return (
                                                                 <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item.slice(1,item.length-1)}</p>
@@ -284,6 +292,7 @@ export default function Resume4() {
                                                             <h5>{items.Experience[1].project_name}</h5>
                                                             {/* <p className='pt-3'>{items.Experience[1].job_discription}</p> */}
                                                             {
+                                                                 getdata2 === null ? " " :
                                                                 getdata2.map((item1, key) => {
                                                                     return (
                                                                         <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item1.slice(1,item1.length-1)}</p>
@@ -315,6 +324,7 @@ export default function Resume4() {
                                                             {/* <p className='pt-3'>{items.Experience[1].job_discription}</p> */}
 
                                                             {
+                                                                 getdata3 === null ? " " :
                                                                 getdata3.map((item2, key) => {
                                                                     return (
                                                                         <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item2.slice(1,item2.length-1)}</p>
@@ -381,7 +391,10 @@ export default function Resume4() {
                                                                         )
                                                                     })
                                                                 }
+                                                                     {
+                                                                        items.Experience[4].project_urls===''?"":
                                                             <p><strong>Project_urls:-</strong> <a href={items.Experience[4].project_urls} target="_blank"> {items.Experience[4].project_urls} </a></p>
+                                                                }
                                                             <h5 style={{ textTransform: "capitalize" }}>{items.Experience[4].Company_name} {items.Experience[4].city},{items.Experience[4].country}</h5>
                                                         </div>
                                                 }
@@ -409,7 +422,10 @@ export default function Resume4() {
                                                                         )
                                                                     })
                                                                 }
+                                                                {
+                                                                    items.Experience[5].project_urls===''?"":
                                                             <p><strong>Project_urls:-</strong> <a href={items.Experience[5].project_urls} target="_blank"> {items.Experience[5].project_urls} </a></p>
+                                                                }
                                                             <h5 style={{ textTransform: "capitalize" }}>{items.Experience[5].Company_name} {items.Experience[5].city},{items.Experience[5].country}</h5>
                                                         </div>
                                                 }
@@ -438,7 +454,11 @@ export default function Resume4() {
                                                                         )
                                                                     })
                                                                 }
+                                                                {
+
+                                                                items.Experience[6].project_urls===''?"":
                                                             <p><strong>Project_urls:-</strong> <a href={items.Experience[6].project_urls} target="_blank"> {items.Experience[6].project_urls} </a></p>
+                                                                }
                                                                 <h5 style={{ textTransform: "capitalize" }}>{items.Experience[6].Company_name} {items.Experience[6].city},{items.Experience[6].country}</h5>
                                                         </div>
                                                 }
@@ -466,7 +486,10 @@ export default function Resume4() {
                                                                         )
                                                                     })
                                                                 }
+                                                                {
+                                                                    items.Experience[7].project_urls===''?"":
                                                             <p><strong>Project_urls:-</strong> <a href={items.Experience[7].project_urls} target="_blank"> {items.Experience[7].project_urls} </a></p>
+                                                                }
                                                                 <h5 style={{ textTransform: "capitalize" }}>{items.Experience[7].Company_name} {items.Experience[7].city},{items.Experience[7].country}</h5>
                                                         </div>
                                                 }
@@ -494,7 +517,11 @@ export default function Resume4() {
                                                                      )
                                                                     })
                                                                 }
+                                                                {
+
+                                                                items.Experience[8].project_urls===''?"":
                                                             <p><strong>Project_urls:-</strong> <a href={items.Experience[8].project_urls} target="_blank"> {items.Experience[8].project_urls} </a></p>
+                                                                }
                                                                 <h5 style={{ textTransform: "capitalize" }}>{items.Experience[8].Company_name} {items.Experience[8].city},{items.Experience[8].country}</h5>
                                                         </div>
                                                 }
@@ -522,7 +549,10 @@ export default function Resume4() {
                                                                            )
                                                                         })
                                                                     }
+                                                                    {
+                                                                        items.Experience[9].project_urls===''?"":
                                                             <p><strong>Project_urls:-</strong> <a href={items.Experience[9].project_urls} target="_blank"> {items.Experience[9].project_urls} </a></p>
+                                                                    }
                                                                     <h5 style={{ textTransform: "capitalize" }}>{items.Experience[9].Company_name} {items.Experience[9].city},{items.Experience[9].country}</h5>
                                                         </div>
                                                 } {
@@ -549,7 +579,10 @@ export default function Resume4() {
                                                                         )
                                                                     })
                                                                 }
+                                                                {
+                                                                    items.Experience[10].project_urls===''?"":
                                                             <p><strong>Project_urls:-</strong> <a href={items.Experience[10].project_urls} target="_blank"> {items.Experience[10].project_urls} </a></p>
+                                                                }
                                                                 <h5 style={{ textTransform: "capitalize" }}>{items.Experience[10].Company_name} {items.Experience[10].city},{items.Experience[10].country}</h5>
                                                         </div>
                                                 } {
@@ -576,7 +609,10 @@ export default function Resume4() {
                                                                            )
                                                                         })
                                                                     }
+                                                                    {
+                                                                        items.Experience[11].project_urls===''?"":
                                                             <p><strong>Project_urls:-</strong> <a href={items.Experience[11].project_urls} target="_blank"> {items.Experience[11].project_urls} </a></p>
+                                                                    }
                                                                     <h5 style={{ textTransform: "capitalize" }}>{items.Experience[11].Company_name} {items.Experience[11].city},{items.Experience[11].country}</h5>
                                                         </div>
                                                 } 

@@ -5,20 +5,13 @@ import TextareaAutosize from 'react-textarea-autosize';
 import axios from 'axios';
 import { Chip } from '@mui/material';
 import Experience_form4 from './Experience_form4';
-// import Editor from 'material-ui-editor'
-// import { Editor } from "react-draft-wysiwyg";
-// import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-// import { EditorState } from 'draft-js';
-export default function Experience_form3() {
+import { BASE_URL, NGROK_URL } from '../config';
+
+export default function Experience_form2() {
 
     const [discriptionData, setdiscriptionData] = useState(null)
     const [inputData, setInputData] = useState([])
-    // const newarr = []
     const openBox = () => {
-        debugger
-        
-        // console.log([...inputData,newarr])
-        // newarr.push(discriptionData)
         var myJsonString = JSON.stringify(discriptionData);
         console.log(myJsonString)
            setInputData([...inputData,myJsonString])
@@ -93,8 +86,10 @@ export default function Experience_form3() {
         data.append('job_discription', inputData)
         data.append('project_urls', Workdata.project_urls)
         data.append('project_name', Workdata.project_name)
-        // http://127.0.0.1:8000/admin/
-        axios.post('http://127.0.0.1:8000/api/experience/', data, config)
+        
+        axios.post(`${BASE_URL}/api/experience/`, data, config)
+        // axios.post(`${NGROK_URL}/api/experience/`, data, config)
+        
         .then((res) => {
             console.log(res)
             window.localStorage.setItem('data3', JSON.stringify(inputData))
@@ -177,22 +172,7 @@ export default function Experience_form3() {
             </div>
 
 
-            {/* <div className='row namedata d-flex' style={{ textAlign: "left", width: "1000px", marginTop: "30px", marginLeft: "50px" }}>
-                <div className='col-lg-3 col-md-3 col-sm-12 d-flex' >
-                    <h5 className='mt-2'> Job_discription:</h5><i className="fa fa-snowflake-o Tabicons"></i>
-                </div>
-                <div className='col-lg-6 col-md-6 col-sm-12 d-flex'  style={{justifyContent:"space-between"}}>
-                    <div>
-                <TextField id="outlined-basic" label="points" variant="outlined"
-                        sx={{ width: "280px" }} autoComplete="off" value={Workdata.job_discription} onChange={handleOnChange} name="job_discription"
-                    />
-                    </div>
-                <div  style={{marginTop:"10px"}}>
-                    <button className='btn btn-primary'>Add More Points</button>
-                </div>
-                </div>
 
-            </div> */}
             <div className='row namedata d-flex' style={{ textAlign: "left", width: "1000px", marginTop: "30px", marginLeft: "50px" }}>
                 <div className='col-lg-3 col-md-3 col-sm-12 d-flex' >
                     <h5 className='mt-2'> Project_urls:</h5><i className="fa fa-snowflake-o Tabicons"></i>
@@ -496,14 +476,17 @@ export default function Experience_form3() {
                         <p style={{ margin: "10px 10px" }}>End date</p>
 
                     </div>
-                    <div className='navtab1 ' >
+                    <div className='navtab1 d-flex' >
 
                         <div className='btn col-lg-9 col-sm-12' style={{ marginTop: "10px" }} >
-                            <button onClick={opennewbox} id="addmorebtn" className='btn btn-primary' style={{ display: "none" }}>+</button>
+                            <button onClick={opennewbox} id="addmorebtn" className='btn btn-primary' style={{ display: "none" ,backgroundColor:"blue"}}>+</button>
                         </div>
-                        <div className='btn col-lg-9 col-sm-12'>
+                        <div className='btn2 col-lg-9 col-sm-12'>
                             <Link to="/all_resume"><button id="nextbtnid" style={{ display: "none" }} className="nextbtn">Show Resume</button></Link>
                             <button onClick={savedata} id="savebtnid" style={{ display: "block" }}>Submit Form</button>
+                            
+                        </div>
+                        <div className='btn col-lg-9 col-sm-12'>
                         </div>
 
                     </div>
@@ -512,13 +495,7 @@ export default function Experience_form3() {
                 </div>
             </div>
             <hr style={{ height: "1px", backgroundColor: "#49444385" }}></hr>
-            {/* <div>
-
-                <div className='btn col-sm-9'>
-                    <Link to="/all_resume"><button id="nextbtnid" style={{ display: "none" }} className="nextbtn">Show Resume</button></Link>
-                    <button onClick={savedata} id="savebtnid" style={{ display: "block" }}>Submit Form</button>
-                </div>
-            </div> */}
+           
 
 
         </div>

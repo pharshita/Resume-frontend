@@ -27,13 +27,15 @@ import Resume9 from './Components/Resume9';
 import Resume10 from './Components/Resume10';
 import Resume11 from './Components/Resume11';
 import Test from './Components/Test';
+import Const from './Components/Const';
 
 function App() {
+  var a="http://127.0.0.1:8000"
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Signup />}></Route>
+          <Route path='/' element={<Signup />} urldata={a}></Route>
           <Route path='/signin' element={<Signin />}></Route>
           <Route path='/user' element={<SideNav />}></Route>
           <Route path='/education' element={<Education />}></Route>
@@ -56,6 +58,7 @@ function App() {
           <Route path="/profession" element={<Professional />}></Route>
           <Route path="/tamplates" element={<Tamplates />}></Route>
           <Route path="/test" element={<Test />}></Route>
+          <Route path="/const" element={<Const/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>

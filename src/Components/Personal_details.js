@@ -3,6 +3,8 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Const from './Const';
+import { BASE_URL, NGROK_URL } from '../config';
 
 export default function Personal_details() {
 
@@ -32,6 +34,7 @@ export default function Personal_details() {
     const SavePersonalData = async () => {
         let data = new FormData()
 
+
         data.append('profile_image',selectfile)
         data.append('first_name',ProfileData.first_name)
         data.append('last_name',ProfileData.last_name)
@@ -44,12 +47,15 @@ export default function Personal_details() {
         data.append('profile_summary',ProfileData.profile_summary)
         data.append('phone_number',ProfileData.phone_number)
 // debugger
-        await axios.post('http://127.0.0.1:8000/api/user/', data, config)
+     axios.post(`${BASE_URL}/api/user/`, data, config)
+        // await axios.post(`${NGROK_URL}/api/user/`, data, config)
+       
         .then((res) => {
             // debugger
         window.localStorage.setItem('id', JSON.stringify(res.data.id))
-        document.getElementById("savebtnid").style.display = "none"
-        document.getElementById("nextbtnid").style.display = "block"
+        // document.getElementById("savebtnid").style.display = "none"
+        // document.getElementById("nextbtnid").style.display = "block"
+        window.location.href = "/education";
         }).catch((err) => {
             console.log(err)
         })
@@ -435,7 +441,7 @@ export default function Personal_details() {
                 <div className='btn col-lg-9 col-sm-12' >
 
                     <button onClick={SavePersonalData} id="savebtnid" style={{ display: "block", padding:" 10px 20px",backgroundColor: "#353232",border: "none",color: "white",marginRight: "-30px" }}>Save</button>
-                    <Link to="/education"><button id="nextbtnid" style={{ display: "none", padding:" 10px 20px",backgroundColor: "#353232",border: "none",color: "white",marginRight: "-30px" }} className="nextbtn">Next</button></Link>
+                    {/* <Link to="/education"><button id="nextbtnid" style={{ display: "none", padding:" 10px 20px",backgroundColor: "#353232",border: "none",color: "white",marginRight: "-30px" }} className="nextbtn">Next</button></Link> */}
                 </div>
                </div>
         

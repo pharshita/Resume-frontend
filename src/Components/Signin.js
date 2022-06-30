@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { BASE_URL } from '../config'
 
 export default function Signin() {
     const[email,setEmail]=useState("")
@@ -20,9 +21,12 @@ export default function Signin() {
 
         data.append('email',email)
         data.append('password',password)
+        // let url="http://127.0.0.1:8000"
+        let ngrok="https://4d4f-2405-201-300b-7072-7568-f976-cbbf-7a4d.in.ngrok.io"
 
 
-        axios.post('http://127.0.0.1:8000/api/login/', data)
+        axios.post(`${BASE_URL}/api/login/`, data)
+        // axios.post(`${ngrok}/api/login/`,data)
         .then((res) => {
             window.localStorage.setItem('id',res.data.id);
             window.localStorage.setItem('token',res.data.access)
@@ -59,7 +63,7 @@ export default function Signin() {
                 <div className='text-right' >
                     <hr style={{backgroundColor:"white",marginTop:"40px"}}></hr>
                     <div className='d-flex' style={{justifyContent:"space-between"}}>
-                    <p>Not a member?<Link to="/signup"><span style={{color:"#30c4ff"}}> Sign Up </span></Link></p>
+                    <p>Not a member?<Link to="/"><span style={{color:"#30c4ff"}}> Sign Up </span></Link></p>
                     <p>Forgot password</p>
                     </div>
                 </div>

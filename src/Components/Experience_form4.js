@@ -5,6 +5,7 @@ import TextareaAutosize from 'react-textarea-autosize';
 import axios from 'axios';
 import { Chip } from '@mui/material';
 import Experience_form5 from './Experience_form5';
+import { BASE_URL, NGROK_URL } from '../config';
 // import Editor from 'material-ui-editor'
 // import { Editor } from "react-draft-wysiwyg";
 // import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
@@ -16,13 +17,13 @@ export default function Experience_form4() {
     // const newarr = []
     const openBox = () => {
         debugger
-        
+
         // console.log([...inputData,newarr])
         // newarr.push(discriptionData)
         var myJsonString = JSON.stringify(discriptionData);
         console.log(myJsonString)
-           setInputData([...inputData,myJsonString])
-        
+        setInputData([...inputData, myJsonString])
+
         setdiscriptionData(document.getElementsByClassName("removedata").value = "")
 
 
@@ -31,7 +32,7 @@ export default function Experience_form4() {
         setdiscriptionData(e.target.value)
     }
     console.log(inputData)
-    console.log(typeof(myJsonString))
+    console.log(typeof (myJsonString))
 
 
     // const [editorState, setEditorState] = useState(EditorState.createEmpty())
@@ -45,7 +46,7 @@ export default function Experience_form4() {
     const [addeducations, setaddeducations] = useState(false)
     const opennewbox = () => {
         setaddeducations(true)
-        
+
 
     }
     const [Workdata, setWorkdata] = useState({
@@ -76,10 +77,10 @@ export default function Experience_form4() {
     // },
     //     [editorState]
     // );
-    
-    
+
+
     const config = { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
-    
+
     const savedata = () => {
         const id = window.localStorage.getItem('id')
         let data = new FormData()
@@ -93,34 +94,36 @@ export default function Experience_form4() {
         data.append('job_discription', inputData)
         data.append('project_urls', Workdata.project_urls)
         data.append('project_name', Workdata.project_name)
-        // http://127.0.0.1:8000/admin/
-        axios.post('http://127.0.0.1:8000/api/experience/', data, config)
-        .then((res) => {
-            console.log(res)
-            window.localStorage.setItem('data4', JSON.stringify(inputData))
-            document.getElementById("nextbtnid").style.display = "block"
-            document.getElementById("nextbtnid").style.backgroundColor = "#32a2a8"
-            document.getElementById("addmorebtn").style.display = "block"
-            document.getElementById("savebtnid").style.display = "none"
-        }).catch((err) => {
-            console.log(err)
-        })
+        
+        axios.post(`${BASE_URL}/api/experience/`, data, config)
+        // axios.post(`${NGROK_URL}/api/experience/`, data, config)
+
+            .then((res) => {
+                console.log(res)
+                window.localStorage.setItem('data4', JSON.stringify(inputData))
+                document.getElementById("nextbtnid").style.display = "block"
+                document.getElementById("nextbtnid").style.backgroundColor = "#32a2a8"
+                document.getElementById("addmorebtn").style.display = "block"
+                document.getElementById("savebtnid").style.display = "none"
+            }).catch((err) => {
+                console.log(err)
+            })
     }
     // debugger
-    
+
     // const handleReturn = (e)=>{
-        //     // setEditorState(e.target.innerText)
-        
-        //     let n=e.target.firstChild.lastChild.childElementCount
-        //     setValues(editorState+ "\n" +e.target.firstChild.lastChild.innerText)    
-        // }
+    //     // setEditorState(e.target.innerText)
+
+    //     let n=e.target.firstChild.lastChild.childElementCount
+    //     setValues(editorState+ "\n" +e.target.firstChild.lastChild.innerText)    
+    // }
 
     // e.target.firstChild.lastChild.firstChild.nextElementSibling.innerText
     // e.target.firstChild.lastChild.childElementCount
     return (
         <div>
             {
-                addeducations ?  <Experience_form5/>:""
+                addeducations ? <Experience_form5 /> : ""
             }
             <div className='row namedata d-flex' style={{ textAlign: "left", width: "1000px", marginTop: "30px", marginLeft: "50px" }}>
                 <div className='col-sm-12' style={{ textAlign: "left" }}>
@@ -153,7 +156,7 @@ export default function Experience_form4() {
                 <div className='col-lg-3 col-md-3 col-sm-12 d-flex' >
                     <h5 className='mt-2'> Job_discription:</h5><i className="fa fa-snowflake-o Tabicons"></i>
                 </div>
-                <div className='col-lg-4 col-md-4 col-sm-12 d-flex'  style={{justifyContent:"space-between"}}>
+                <div className='col-lg-4 col-md-4 col-sm-12 d-flex' style={{ justifyContent: "space-between" }}>
                     <div>
                         <TextField id="outlined-basic" className="removedata" label="Title " variant="outlined" onChange={handlechangedata} value={discriptionData} autoComplete="off"
                             sx={{ width: "280px" }} />
@@ -163,17 +166,17 @@ export default function Experience_form4() {
                     <button onClick={openBox} className='btn btn-primary'>Add More Points</button>
                 </div>
 
-                    <div className='points col-lg-7  col-md-7  col-sm-12 offset-5 mt-3 text-left mb-3'>
+                <div className='points col-lg-7  col-md-7  col-sm-12 offset-5 mt-3 text-left mb-3'>
 
-                        {
+                    {
 
-                            inputData.map((items, key) => {
-                                return (
-                                    <p key={key} >*&nbsp;{items.slice(1,items.length-1)}</p>
-                                )
-                            })
-                        }
-                    </div>
+                        inputData.map((items, key) => {
+                            return (
+                                <p key={key} >*&nbsp;{items.slice(1, items.length - 1)}</p>
+                            )
+                        })
+                    }
+                </div>
             </div>
 
 
@@ -496,14 +499,17 @@ export default function Experience_form4() {
                         <p style={{ margin: "10px 10px" }}>End date</p>
 
                     </div>
-                    <div className='navtab1 ' >
+                    <div className='navtab1 d-flex' >
 
                         <div className='btn col-lg-9 col-sm-12' style={{ marginTop: "10px" }} >
-                            <button onClick={opennewbox} id="addmorebtn" className='btn btn-primary' style={{ display: "none" }}>+</button>
+                            <button onClick={opennewbox} id="addmorebtn" className='btn btn-primary' style={{ display: "none", backgroundColor: "blue" }}>+</button>
                         </div>
-                        <div className='btn col-lg-9 col-sm-12'>
+                        <div className='btn2 col-lg-9 col-sm-12'>
                             <Link to="/all_resume"><button id="nextbtnid" style={{ display: "none" }} className="nextbtn">Show Resume</button></Link>
                             <button onClick={savedata} id="savebtnid" style={{ display: "block" }}>Submit Form</button>
+
+                        </div>
+                        <div className='btn col-lg-9 col-sm-12'>
                         </div>
 
                     </div>

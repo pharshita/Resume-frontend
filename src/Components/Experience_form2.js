@@ -5,6 +5,7 @@ import TextareaAutosize from 'react-textarea-autosize';
 import axios from 'axios';
 import { Chip } from '@mui/material';
 import Experience_form3 from './Experience_form3';
+import { BASE_URL, NGROK_URL } from '../config';
 
 export default function Experience_form2() {
 
@@ -85,8 +86,10 @@ export default function Experience_form2() {
         data.append('job_discription', inputData)
         data.append('project_urls', Workdata.project_urls)
         data.append('project_name', Workdata.project_name)
-        // http://127.0.0.1:8000/admin/
-        axios.post('http://127.0.0.1:8000/api/experience/', data, config)
+        
+        axios.post(`${BASE_URL}/api/experience/`, data, config)
+        // axios.post(`${NGROK_URL}/api/experience/`, data, config)
+        
         .then((res) => {
             console.log(res)
             window.localStorage.setItem('data2', JSON.stringify(inputData))
@@ -473,14 +476,17 @@ export default function Experience_form2() {
                         <p style={{ margin: "10px 10px" }}>End date</p>
 
                     </div>
-                    <div className='navtab1 ' >
+                    <div className='navtab1 d-flex' >
 
                         <div className='btn col-lg-9 col-sm-12' style={{ marginTop: "10px" }} >
-                            <button onClick={opennewbox} id="addmorebtn" className='btn btn-primary' style={{ display: "none" }}>+</button>
+                            <button onClick={opennewbox} id="addmorebtn" className='btn btn-primary' style={{ display: "none" ,backgroundColor:"blue"}}>+</button>
                         </div>
-                        <div className='btn col-lg-9 col-sm-12'>
+                        <div className='btn2 col-lg-9 col-sm-12'>
                             <Link to="/all_resume"><button id="nextbtnid" style={{ display: "none" }} className="nextbtn">Show Resume</button></Link>
                             <button onClick={savedata} id="savebtnid" style={{ display: "block" }}>Submit Form</button>
+                            
+                        </div>
+                        <div className='btn col-lg-9 col-sm-12'>
                         </div>
 
                     </div>

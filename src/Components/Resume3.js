@@ -3,6 +3,7 @@ import ReactToPrint from 'react-to-print';
 import html2pdf from 'html2pdf.js'
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import axios from 'axios';
+import { BASE_URL } from '../config';
 
 export default function Resume3() {
     const componentRef = useRef();
@@ -13,7 +14,11 @@ export default function Resume3() {
     useEffect(() => {
         const id = window.localStorage.getItem('id')
         // console.log(id)
-        axios.get(`http://127.0.0.1:8000/api/resume/${id}/`, config).then((res) => {
+
+        // http://127.0.0.1:8000/api/resume/1/
+        axios.get(` ${BASE_URL}/api/resume/${id}/`, config).then((res) => {
+          // axios.get(` ${ngrok}/api/resume/${id}/`, config).then((res) => {
+
             setdata([res.data])
         }).catch((err) => {
             console.log(err)
@@ -113,15 +118,19 @@ export default function Resume3() {
                                                     <h5>{items.Experience[0].project_name}</h5>
 
                                                     {/* <p>{items.Experience[0].job_discription}</p> */}
-                                                    {
-                                                        getdata.map((item, key) => {
-                                                            return (
-                                                                <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item.slice(1, item.length - 1)}</p>
-                                                            )
-                                                        })
-                                                    }
-                                                    <p><strong>Project_urls:-</strong> <a href={items.Experience[0].project_urls} target="_blank"> {items.Experience[0].project_urls} </a></p>
-                                                </div>
+{
+                                                                getdata === null ? "" :
+                                                                    getdata.map((item, key) => {
+                                                                        return (
+                                                                            <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item.slice(1, item.length - 1)}</p>
+                                                                        )
+                                                                    })
+                                                                // getEx()
+                                                            }
+                                                            {
+                                                                items.Experience[0].project_urls === '' ? "" :
+                                                                    <p><strong>Project_urls:-</strong> <a href={items.Experience[0].project_urls} target="_blank"> {items.Experience[0].project_urls} </a></p>
+                                                            }                                                </div>
 
                                                 {
                                                     items.Experience[1] === undefined ? "" :
@@ -140,14 +149,18 @@ export default function Resume3() {
 
                                                             {/* <p>{items.Experience[1].job_discription}</p> */}
                                                             {
-                                                                getdata2.map((item1, key) => {
-                                                                    return (
-                                                                        <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item1.slice(1, item1.length - 1)}</p>
-                                                                    )
-                                                                })
+                                                                getdata2 === null ? "" :
+                                                                    getdata2.map((item1, key) => {
+                                                                        return (
+                                                                            <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item1.slice(1, item1.length - 1)}</p>
+                                                                        )
+                                                                    })
                                                             }
 
-                                                            <p><strong>Project_urls:-</strong> <a href={items.Experience[1].project_urls} target="_blank"> {items.Experience[1].project_urls} </a></p>
+                                                            {
+                                                                items.Experience[1].project_urls === '' ? "" :
+                                                                    <p><strong>Project_urls:-</strong> <a href={items.Experience[1].project_urls} target="_blank"> {items.Experience[1].project_urls} </a></p>
+                                                            }
                                                         </div>
                                                 }
 

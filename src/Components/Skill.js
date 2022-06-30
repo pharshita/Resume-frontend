@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField';
 import Date from './Date';
 import { Chip } from '@mui/material';
 import axios from 'axios';
+import { BASE_URL } from '../config';
 
 
 export default function Skill() {
@@ -31,11 +32,16 @@ export default function Skill() {
         let data = new FormData()
         data.append('id', id)
         data.append('skills', inputData)
-        axios.post('http://127.0.0.1:8000/api/skills/', data,config)
+
+        let url="http://127.0.0.1:8000"
+        let ngrok="https://4d4f-2405-201-300b-7072-7568-f976-cbbf-7a4d.in.ngrok.io"
+        axios.post(`${BASE_URL}/api/skills/`, data,config)
+        // axios.post(`${ngrok}/api/skills/`, data,config)
             .then((res) => {
                 console.log(res)
-                document.getElementById("nextbtnid").style.display = "block"
-                document.getElementById("savebtnid").style.display = "none"
+                // document.getElementById("nextbtnid").style.display = "block"
+                // document.getElementById("savebtnid").style.display = "none"
+                window.location.href="/experience"
             })
             .catch((err) => { console.log(err) })
 
@@ -116,7 +122,7 @@ export default function Skill() {
                                 <div className='btn1 col-sm-12' >
 
                                 <button onClick={saveskilldata} id="savebtnid" style={{ display: "block" }} >Save</button>
-                                <Link to="/experience"><button id="nextbtnid" style={{ display: "none" }} className="nextbtn">Next</button></Link>
+                                {/* <Link to="/experience"><button id="nextbtnid" style={{ display: "none" }} className="nextbtn">Next</button></Link> */}
                                     {/* <button onClick={SavePersonalData} id="savebtnid" style={{ display: "block", padding: " 10px 20px", backgroundColor: "#353232", border: "none", color: "white", marginRight: "-30px" }}>Save</button> */}
                                     {/* <Link to="/education"><button id="nextbtnid" style={{ display: "none", padding: " 10px 20px", backgroundColor: "#353232", border: "none", color: "white", marginRight: "-30px" }} className="nextbtn">Next</button></Link> */}
                                 </div>

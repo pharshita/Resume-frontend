@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react'
 import TextField from '@mui/material/TextField';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { BASE_URL, NGROK_URL } from '../config';
 
 export default function Education_form() {
   const [addeducations, setaddeducations] = useState(false)
@@ -14,7 +15,11 @@ export default function Education_form() {
 
   const saveEducationdata = () => {
     const id = window.localStorage.getItem('id')
+    let arr = []
     let data = new FormData()
+
+
+
     data.append('id', id)
     data.append('user', id)
     data.append('school_name', Educationdata.school_name)
@@ -24,10 +29,13 @@ export default function Education_form() {
     data.append('start_date', Educationdata.start_date)
     data.append('end_date', Educationdata.end_date)
 
-    axios.post('http://127.0.0.1:8000/api/education/', data,config)
+    // arr.append[data]
+    axios.post(`${BASE_URL}/api/education/`, data,config)
+    // axios.post(`${NGROK_URL}/api/education/`,data,config)
       .then((res) => {
         console.log(res)
         document.getElementById("nextbtnid").style.display = "block"
+        document.getElementById("nextbtnid").style.backgroundColor = "#32a2a8"
         document.getElementById("addmorebtn").style.display = "block"
         document.getElementById("savebtnid").style.display = "none"
       }).catch((err) => {
@@ -125,12 +133,12 @@ export default function Education_form() {
 
           </div>
 
-          <div className='navtab1 ' >
+          <div className='navtab1 d-flex' >
 
             <div className='btn col-lg-9 col-sm-12' style={{ marginTop: "10px" }} >
               <button onClick={opennewbox} id="addmorebtn" className='btn btn-primary' style={{ display: "none",backgroundColor:"blue",color:"white"}}>+</button>
             </div>
-            <div className='btn col-lg-9 col-sm-12'>
+            <div className='btn2 col-lg-9 col-sm-12'>
               <Link to="/skill"><button id="nextbtnid" style={{ display: "none" }} className="nextbtn">Next</button></Link>
               <button onClick={saveEducationdata} id="savebtnid" style={{ display: "block" }}>Save</button>
             </div>

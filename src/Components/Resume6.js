@@ -6,6 +6,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import axios from 'axios';
+import { BASE_URL } from '../config';
 
 export default function Resume6() {
 
@@ -15,7 +16,13 @@ export default function Resume6() {
     useEffect(() => {
         const id = window.localStorage.getItem('id')
         // console.log(id)
-        axios.get(`http://127.0.0.1:8000/api/resume/${id}/`, config).then((res) => {
+          
+        let ngrok="https://4d4f-2405-201-300b-7072-7568-f976-cbbf-7a4d.in.ngrok.io"
+        let url="http://127.0.0.1:8000"
+        // http://127.0.0.1:8000/api/resume/1/
+        axios.get(` ${BASE_URL}/api/resume/${id}/`, config).then((res) => {
+          // axios.get(` ${ngrok}/api/resume/${id}/`, config).then((res) => {
+
             setdata([res.data])
         }).catch((err) => {
             console.log(err)

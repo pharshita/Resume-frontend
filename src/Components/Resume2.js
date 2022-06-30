@@ -7,18 +7,22 @@ import axios from 'axios'
 import html2pdf from 'html2pdf.js'
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import user from "../images/user.jpeg"
+import { BASE_URL } from '../config';
 
 
 export default function Resume2() {
-    const config = { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
+    const config = { headers: { Authorization: `Bearer ${localStorage.getItem("token")}`,
+        'Access-Control-Allow-Credentials': true } }
     const componentRef = useRef();
 
     const [data1, setdata] = useState([])
     useEffect(() => {
         const id = window.localStorage.getItem('id')
         console.log(id)
-        // http://127.0.0.1:8000/api/resume/1/
-        axios.get(` http://127.0.0.1:8000/api/resume/${id}/`, config).then((res) => {
+
+        axios.get(` ${BASE_URL}/api/resume/${id}/`, config).then((res) => {
+            debugger
+            // axios.get(` ${ngrok}/api/resume/${id}/`, config).then((res) => {            
             setdata([res.data])
         }).catch((err) => {
             console.log(err)
@@ -168,22 +172,30 @@ export default function Resume2() {
                                             <div className='add' style={{ marginTop: "50px" }}>
                                                 <h4>Work Experience</h4>
                                                 <hr></hr>
-                                                <div>
-                                                    <p style={{ textAlign: "end", color: "#ed1b73" }}>{items.Experience[0].start_date} to {items.Experience[0].end_date}</p>
-                                                    <h5>{items.Experience[0].job_title} in {items.Experience[0].Company_name} {items.Experience[0].city},{items.Experience[0].country}</h5>
-                                                    <h5>{items.Experience[0].project_name}</h5>
+                                                {
+                                                    items.Experience[0] === undefined ? "" :
+                                                        <div>
+                                                            <p style={{ textAlign: "end", color: "#ed1b73" }}>{items.Experience[0].start_date} to {items.Experience[0].end_date}</p>
+                                                            <h5>{items.Experience[0].job_title} in {items.Experience[0].Company_name} {items.Experience[0].city},{items.Experience[0].country}</h5>
+                                                            <h5>{items.Experience[0].project_name}</h5>
 
-                                                    {/* <p>{items.Experience[0].job_discription}</p> */}
-                                                    {
-                                                        getdata.map((item, key) => {
-                                                            return (
-                                                                <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item.slice(1, item.length - 1)}</p>
-                                                            )
-                                                        })
-                                                    }
-                                                    <p><strong>Project_urls:-</strong>{items.Experience[0].project_urls}</p>
+                                                            {/* <p>{items.Experience[0].job_discription}</p> */}
+                                                            {
+                                                                getdata === null ? "" :
+                                                                    getdata.map((item, key) => {
+                                                                        return (
+                                                                            <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item.slice(1, item.length - 1)}</p>
+                                                                        )
+                                                                    })
+                                                                // getEx()
+                                                            }
+                                                            {
+                                                                items.Experience[0].project_urls === '' ? "" :
+                                                                    <p><strong>Project_urls:-</strong> <a href={items.Experience[0].project_urls} target="_blank"> {items.Experience[0].project_urls} </a></p>
+                                                            }
 
-                                                </div>
+                                                        </div>
+                                                }
                                                 {
                                                     items.Experience[1] === undefined ? "" :
                                                         <div>
@@ -194,13 +206,18 @@ export default function Resume2() {
 
                                                             {/* <p>{items.Experience[1].job_discription}</p> */}
                                                             {
-                                                                getdata2.map((item1, key) => {
-                                                                    return (
-                                                                        <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item1.slice(1, item1.length - 1)}</p>
-                                                                    )
-                                                                })
+                                                                getdata2 === null ? "" :
+                                                                    getdata2.map((item1, key) => {
+                                                                        return (
+                                                                            <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item1.slice(1, item1.length - 1)}</p>
+                                                                        )
+                                                                    })
                                                             }
-                                                            <p><strong>Project_urls:-</strong>{items.Experience[1].project_urls}</p>
+
+                                                            {
+                                                                items.Experience[1].project_urls === '' ? "" :
+                                                                    <p><strong>Project_urls:-</strong> <a href={items.Experience[1].project_urls} target="_blank"> {items.Experience[1].project_urls} </a></p>
+                                                            }
                                                         </div>
                                                 }
                                                 {
@@ -213,13 +230,17 @@ export default function Resume2() {
 
                                                             {/* <p>{items.Experience[2].job_discription}</p> */}
                                                             {
-                                                                getdata3.map((item2, key) => {
-                                                                    return (
-                                                                        <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item2.slice(1, item2.length - 1)}</p>
-                                                                    )
-                                                                })
+                                                                getdata3 === null ? "" :
+                                                                    getdata3.map((item2, key) => {
+                                                                        return (
+                                                                            <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item2.slice(1, item2.length - 1)}</p>
+                                                                        )
+                                                                    })
                                                             }
-                                                            <p><strong>Project_urls:-</strong>{items.Experience[2].project_urls}</p>
+                                                            {
+                                                                items.Experience[2].project_urls === '' ? "" :
+                                                                    <p><strong>Project_urls:-</strong> <a href={items.Experience[2].project_urls} target="_blank"> {items.Experience[2].project_urls} </a></p>
+                                                            }
                                                         </div>
                                                 }
                                                 {
@@ -240,7 +261,10 @@ export default function Resume2() {
                                                                         )
                                                                     })
                                                             }
-                                                            <p><strong>Project_urls:-</strong>{items.Experience[3].project_urls}</p>
+                                                            {
+                                                                items.Experience[3].project_urls === '' ? "" :
+                                                                    <p><strong>Project_urls:-</strong>{items.Experience[3].project_urls}</p>
+                                                            }
                                                         </div>
                                                 }
                                                 {
@@ -259,8 +283,10 @@ export default function Resume2() {
                                                                         )
                                                                     })
                                                             }
-
-                                                            <p><strong>Project_urls:-</strong>{items.Experience[4].project_urls}</p>
+                                                            {
+                                                                items.Experience[4].project_urls === '' ? "" :
+                                                                    <p><strong>Project_urls:-</strong>{items.Experience[4].project_urls}</p>
+                                                            }
                                                         </div>
                                                 }
                                                 {
@@ -280,7 +306,11 @@ export default function Resume2() {
                                                                         )
                                                                     })
                                                             }
-                                                            <p><strong>Project_urls:-</strong>{items.Experience[5].project_urls}</p>
+                                                            {
+                                                                items.Experience[5].project_urls === '' ? "" :
+
+                                                                    <p><strong>Project_urls:-</strong>{items.Experience[5].project_urls}</p>
+                                                            }
                                                         </div>
                                                 }  {
                                                     items.Experience[6] === undefined ? "" :
@@ -300,8 +330,11 @@ export default function Resume2() {
                                                                         )
                                                                     })
                                                             }
+                                                            {
+                                                                items.Experience[6].project_urls === '' ? "" :
+                                                                    <p><strong>Project_urls:-</strong>{items.Experience[6].project_urls}</p>
 
-                                                            <p><strong>Project_urls:-</strong>{items.Experience[6].project_urls}</p>
+                                                            }
                                                         </div>
                                                 }  {
                                                     items.Experience[7] === undefined ? "" :
@@ -321,7 +354,11 @@ export default function Resume2() {
                                                                         )
                                                                     })
                                                             }
-                                                            <p><strong>Project_urls:-</strong>{items.Experience[7].project_urls}</p>
+                                                            {
+
+                                                                items.Experience[7].project_urls === '' ? "" :
+                                                                    <p><strong>Project_urls:-</strong>{items.Experience[7].project_urls}</p>
+                                                            }
                                                         </div>
                                                 }  {
                                                     items.Experience[8] === undefined ? "" :
@@ -333,6 +370,7 @@ export default function Resume2() {
 
                                                             {/* <p>{items.Experience[8].job_discription}</p> */}
 
+
                                                             {
                                                                 getdata9 === null ? "" :
                                                                     getdata9.map((item8, key) => {
@@ -341,7 +379,11 @@ export default function Resume2() {
                                                                         )
                                                                     })
                                                             }
-                                                            <p><strong>Project_urls:-</strong>{items.Experience[8].project_urls}</p>
+                                                            {
+                                                                items.Experience[8].project_urls === '' ? "" :
+
+                                                                    <p><strong>Project_urls:-</strong>{items.Experience[8].project_urls}</p>
+                                                            }
                                                         </div>
                                                 }  {
                                                     items.Experience[9] === undefined ? "" :
@@ -360,7 +402,11 @@ export default function Resume2() {
                                                                         )
                                                                     })
                                                             }
-                                                            <p><strong>Project_urls:-</strong>{items.Experience[9].project_urls}</p>
+                                                            {
+                                                                items.Experience[9].project_urls === '' ? "" :
+
+                                                                    <p><strong>Project_urls:-</strong>{items.Experience[9].project_urls}</p>
+                                                            }
                                                         </div>
                                                 }  {
                                                     items.Experience[10] === undefined ? "" :
@@ -379,7 +425,11 @@ export default function Resume2() {
                                                                         )
                                                                     })
                                                             }
-                                                            <p><strong>Project_urls:-</strong>{items.Experience[10].project_urls}</p>
+                                                            {
+                                                                items.Experience[10].project_urls === '' ? "" :
+
+                                                                    <p><strong>Project_urls:-</strong>{items.Experience[10].project_urls}</p>
+                                                            }
                                                         </div>
                                                 }  {
                                                     items.Experience[11] === undefined ? "" :
@@ -398,9 +448,14 @@ export default function Resume2() {
                                                                         )
                                                                     })
                                                             }
-                                                            <p><strong>Project_urls:-</strong>{items.Experience[11].project_urls}</p>
+                                                            {
+                                                                items.Experience[11].project_urls === '' ? "" :
+
+                                                                    <p><strong>Project_urls:-</strong>{items.Experience[11].project_urls}</p>
+                                                            }
                                                         </div>
-                                                }  {
+                                                }  
+                                                {/* {
                                                     items.Experience[12] === undefined ? "" :
                                                         <div>
 
@@ -409,7 +464,7 @@ export default function Resume2() {
                                                             <p>{items.Experience[12].job_discription}</p>
                                                             <p><strong>Project_urls:-</strong>{items.Experience[12].project_urls}</p>
                                                         </div>
-                                                }
+                                                } */}
                                             </div>
                                             <div className='add' style={{ marginTop: "50px" }}>
                                                 <h4>Education</h4>

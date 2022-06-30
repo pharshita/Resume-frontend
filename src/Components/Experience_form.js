@@ -5,6 +5,7 @@ import TextareaAutosize from 'react-textarea-autosize';
 import axios from 'axios';
 import { Chip } from '@mui/material';
 import Experience_form2 from './Experience_form2';
+import { BASE_URL, NGROK_URL } from '../config';
 // import Editor from 'material-ui-editor'
 // import { Editor } from "react-draft-wysiwyg";
 // import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
@@ -90,7 +91,10 @@ export default function Experience_form() {
         data.append('project_urls', Workdata.project_urls)
         data.append('project_name', Workdata.project_name)
         // http://127.0.0.1:8000/admin/
-        axios.post('http://127.0.0.1:8000/api/experience/', data, config)
+
+        axios.post(`${BASE_URL}/api/experience/`, data, config)
+        // axios.post(`${NGROK_URL}/api/experience/`, data, config)
+       
         .then((res) => {
             console.log(res)
             window.localStorage.setItem('data', JSON.stringify(inputData))
@@ -98,6 +102,7 @@ export default function Experience_form() {
             document.getElementById("nextbtnid").style.backgroundColor = "#32a2a8"
             document.getElementById("addmorebtn").style.display = "block"
             document.getElementById("savebtnid").style.display = "none"
+            document.getElementById("skipdata").style.display="none"
         }).catch((err) => {
             console.log(err)
         })
@@ -492,15 +497,15 @@ export default function Experience_form() {
                         <p style={{ margin: "10px 10px" }}>End date</p>
 
                     </div>
-                    <div className='navtab1 ' >
+                    <div className='navtab1 d-flex' >
 
                         <div className='btn col-lg-9 col-sm-12' style={{ marginTop: "10px" }} >
-                            <button onClick={opennewbox} id="addmorebtn" className='btn btn-primary' style={{ display: "none" }}>+</button>
+                            <button onClick={opennewbox} id="addmorebtn" className='btn btn-primary' style={{ display: "none" ,backgroundColor:"blue"}}>+</button>
                         </div>
-                        <div className='btn col-lg-9 col-sm-12'>
+                        <div className='btn2 col-lg-9 col-sm-12'>
                             <Link to="/all_resume"><button id="nextbtnid" style={{ display: "none" }} className="nextbtn">Show Resume</button></Link>
                             <button onClick={savedata} id="savebtnid" style={{ display: "block" }}>Submit Form</button>
-                            <div style={{marginLeft:"40px"}}>  <Link to="/all_resume"><button>Skip..</button></Link></div>
+                            <div id="skipdata" style={{marginLeft:"40px",display: "block"}}>  <Link to="/all_resume"><button>Skip..</button></Link></div>
                             
                         </div>
                         <div className='btn col-lg-9 col-sm-12'>
