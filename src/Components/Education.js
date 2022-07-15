@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField';
 import Date from './Date';
 import axios from 'axios';
 import Education_form from './Education_form';
+import Education2 from './Education2';
 
 
 
@@ -15,13 +16,13 @@ export default function Education() {
 
             <div>
                 <div className=' text-center'>
-                    <div className='row block' >
+                    <div className='row block'  >
                         <div className='col-sm-2 new text-center' style={{ paddingRight: "0px", paddingLeft: "0px" }}>
                             <nav>
                                 <div>
                                     <ul>
                                         <li>
-                                            <i class="fa fa-user" style={{ fontSize: "22px", color: "white" }}></i><Link to="/"> <a className='personalnav'>Personal</a></Link>
+                                            <i class="fa fa-user" style={{ fontSize: "22px", color: "white" }}></i><Link to="/user"> <a className='personalnav'>Personal</a></Link>
                                         </li>
                                         <li className='current'>
                                             <i class="fa fa-graduation-cap" style={{ fontSize: "22px" }}></i> <Link to="/education"> <a className='personalnav'>Education</a></Link>
@@ -46,7 +47,8 @@ export default function Education() {
                             </div>
                            
                             <div >
-                                <Education_form/>
+                                {/* <Education_form/> */}
+                                <Education2/>
                                     
                                     
                               
@@ -54,7 +56,7 @@ export default function Education() {
 
                            
                         </div>
-                            <hr></hr>
+                            {/* <hr></hr> */}
                     </div>
                 </div>
 

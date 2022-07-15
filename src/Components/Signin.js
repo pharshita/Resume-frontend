@@ -21,23 +21,21 @@ export default function Signin() {
 
         data.append('email',email)
         data.append('password',password)
-        // let url="http://127.0.0.1:8000"
-        let ngrok="https://4d4f-2405-201-300b-7072-7568-f976-cbbf-7a4d.in.ngrok.io"
 
 
         axios.post(`${BASE_URL}/api/login/`, data)
         // axios.post(`${ngrok}/api/login/`,data)
         .then((res) => {
-            window.localStorage.setItem('id',res.data.id);
             window.localStorage.setItem('token',res.data.access)
             // window.location.href="/user"
-            window.location = "/user";
+            window.location = "/page1"; 
         }).catch((err) => {
             console.log(err)
+            alert("Your email and password do not match,please try agian.")
         })
     }
   return (
-    <div className='signinbg'>
+    <div className='banner'>
         <div className='container'>
             <div className='row signinform' >
                 <div className='signin_containt' style={{marginTop:"100px",width:"50%"}}>
@@ -63,8 +61,8 @@ export default function Signin() {
                 <div className='text-right' >
                     <hr style={{backgroundColor:"white",marginTop:"40px"}}></hr>
                     <div className='d-flex' style={{justifyContent:"space-between"}}>
-                    <p>Not a member?<Link to="/"><span style={{color:"#30c4ff"}}> Sign Up </span></Link></p>
-                    <p>Forgot password</p>
+                    <p>Not a member?<Link to="/" style={{ textDecoration:"none"}}><span style={{color:"white"}}> Sign Up </span></Link></p>
+                   <Link to="/forgot_password" style={{textDecoration:"none",color:"white"}}> <p>Forgot password</p></Link>
                     </div>
                 </div>
                 </div>

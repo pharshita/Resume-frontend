@@ -64,7 +64,7 @@ export default function Skill() {
                                 <div>
                                     <ul>
                                         <li>
-                                            <i className="fa fa-user" style={{ fontSize: "22px", color: "white" }}></i><Link to="/"> <a className='personalnav'>Personal</a></Link>
+                                            <i className="fa fa-user" style={{ fontSize: "22px", color: "white" }}></i><Link to="/user"> <a className='personalnav'>Personal</a></Link>
                                         </li>
                                         <li >
                                             <i className="fa fa-graduation-cap" style={{ fontSize: "22px", color: "white" }}></i> <Link to="/education"> <a className='personalnav'>Education</a></Link>
@@ -103,7 +103,7 @@ export default function Skill() {
                                                 skilldata === null ? <h6 >Enter Skills</h6> :
                                                     inputData.map((items, key) => {
                                                         return (
-                                                            <Chip className='mr-2' key={key} label={items} />
+                                                            <Chip className='mr-2 mt-3 chip' key={key} label={items} />
                                                         )
                                                     })
                                             }
@@ -112,7 +112,7 @@ export default function Skill() {
                                     </div>
 
                                     <div className='col-lg-2 col-md-2 col-sm-12 ' >
-                                        <button onClick={openBox} className='btn btn-primary'>Add More</button>
+                                        <button onClick={openBox} style={{backgroundColor: "#806c53",border:"none",padding:"10px 20px",color:"white"}}>Add More</button>
                                     </div>
                                 </div>
 

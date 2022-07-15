@@ -111,10 +111,13 @@ export default function Resume7() {
 
                                                 </ul>
                                             </div>
+                                            {
+                                                items.Experience[0]===undefined?"":
                                             <div>
                                                 <h3 style={{ color: "#00a4bf", marginTop: "50px" }}>Work Experience</h3>
                                                 <div >
-
+                                                    {
+                                                        items.Experience[0]===undefined?"":
                                                     <div className='d-flex pt-4'>
                                                         <div style={{ width: "30%" }}>
                                                             <p style={{ fontWeight: "bold" }}>{items.Experience[0].start_date} to {items.Experience[0].end_date}</p>
@@ -133,9 +136,14 @@ export default function Resume7() {
                                                                     )
                                                                 })
                                                             }
+                                                            {
+                                                               items.Experience[0].project_urls === '' ? "" :
                                                             <p><strong>Project_urls:-</strong> <a href={items.Experience[0].project_urls} target="_blank"> {items.Experience[0].project_urls} </a></p>
+                                                            }
                                                         </div>
                                                     </div>
+                                                    }
+
                                                     {
                                                         items.Experience[1] === undefined ? "" :
                                                             <div className='d-flex pt-4'>
@@ -156,7 +164,10 @@ export default function Resume7() {
                                                                             )
                                                                         })
                                                                     }
-                                                                    <p><strong>Project_urls:-</strong> <a href={items.Experience[1].project_urls} target="_blank"> {items.Experience[1].project_urls} </a></p>
+                                                                   {
+                                                               items.Experience[1].project_urls === '' ? "" :
+                                                            <p><strong>Project_urls:-</strong> <a href={items.Experience[1].project_urls} target="_blank"> {items.Experience[1].project_urls} </a></p>
+                                                            }
                                                                 </div>
                                                             </div>
                                                     }
@@ -180,7 +191,10 @@ export default function Resume7() {
                                                                             )
                                                                         })
                                                                     }
-                                                                    <p><strong>Project_urls:-</strong> <a href={items.Experience[2].project_urls} target="_blank"> {items.Experience[2].project_urls} </a></p>
+                                                                   {
+                                                               items.Experience[2].project_urls === '' ? "" :
+                                                            <p><strong>Project_urls:-</strong> <a href={items.Experience[2].project_urls} target="_blank"> {items.Experience[2].project_urls} </a></p>
+                                                            }
                                                                 </div>
                                                             </div>
                                                     }
@@ -206,7 +220,10 @@ export default function Resume7() {
                                                                                 )
                                                                             })
                                                                     }
-                                                                    <p><strong>Project_urls:-</strong> <a href={items.Experience[3].project_urls} target="_blank"> {items.Experience[3].project_urls} </a></p>
+                                                                   {
+                                                               items.Experience[3].project_urls === '' ? "" :
+                                                            <p><strong>Project_urls:-</strong> <a href={items.Experience[3].project_urls} target="_blank"> {items.Experience[3].project_urls} </a></p>
+                                                            }
                                                                 </div>
                                                             </div>
                                                     }
@@ -232,12 +249,16 @@ export default function Resume7() {
                                                                                 )
                                                                             })
                                                                     }
-                                                                    <p><strong>Project_urls:-</strong> <a href={items.Experience[3].project_urls} target="_blank"> {items.Experience[3].project_urls} </a></p>
+                                                                    {
+                                                               items.Experience[4].project_urls === '' ? "" :
+                                                            <p><strong>Project_urls:-</strong> <a href={items.Experience[4].project_urls} target="_blank"> {items.Experience[4].project_urls} </a></p>
+                                                            }
                                                                 </div>
                                                             </div>
                                                     }
                                                 </div>
                                             </div>
+                                            }
                                             <div>
                                                 <h3 style={{ color: "#00a4bf", marginTop: "50px" }}>Education</h3>
                                                 <div >

@@ -13,9 +13,9 @@ export default function Experience_form2() {
     const [inputData, setInputData] = useState([])
     const openBox = () => {
         var myJsonString = JSON.stringify(discriptionData);
-        console.log(myJsonString)
-           setInputData([...inputData,myJsonString])
-        
+        // console.log(myJsonString)
+        setInputData([...inputData, myJsonString])
+
         setdiscriptionData(document.getElementsByClassName("removedata").value = "")
 
 
@@ -23,8 +23,8 @@ export default function Experience_form2() {
     const handlechangedata = (e) => {
         setdiscriptionData(e.target.value)
     }
-    console.log(inputData)
-    console.log(typeof(myJsonString))
+    // console.log(inputData)
+    // console.log(typeof(myJsonString))
 
 
     // const [editorState, setEditorState] = useState(EditorState.createEmpty())
@@ -38,7 +38,8 @@ export default function Experience_form2() {
     const [addeducations, setaddeducations] = useState(false)
     const opennewbox = () => {
         setaddeducations(true)
-        
+        document.getElementById("addmorebtn").style.display = "none"
+        document.getElementById("nextbtnid").style.display = "none"
 
     }
     const [Workdata, setWorkdata] = useState({
@@ -69,10 +70,10 @@ export default function Experience_form2() {
     // },
     //     [editorState]
     // );
-    
-    
+
+
     const config = { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
-    
+
     const savedata = () => {
         const id = window.localStorage.getItem('id')
         let data = new FormData()
@@ -86,126 +87,79 @@ export default function Experience_form2() {
         data.append('job_discription', inputData)
         data.append('project_urls', Workdata.project_urls)
         data.append('project_name', Workdata.project_name)
-        
+
         axios.post(`${BASE_URL}/api/experience/`, data, config)
-        // axios.post(`${NGROK_URL}/api/experience/`, data, config)
-        
-        .then((res) => {
-            console.log(res)
-            window.localStorage.setItem('data2', JSON.stringify(inputData))
-            document.getElementById("nextbtnid").style.display = "block"
-            document.getElementById("nextbtnid").style.backgroundColor = "#32a2a8"
-            document.getElementById("addmorebtn").style.display = "block"
-            document.getElementById("savebtnid").style.display = "none"
-        }).catch((err) => {
-            console.log(err)
-        })
+            // axios.post(`${NGROK_URL}/api/experience/`, data, config)
+
+            .then((res) => {
+                // console.log(res)
+                window.localStorage.setItem('data2', JSON.stringify(inputData))
+                document.getElementById("nextbtnid").style.display = "block"
+                document.getElementById("nextbtnid").style.backgroundColor = "#32a2a8"
+                document.getElementById("addmorebtn").style.display = "block"
+                document.getElementById("savebtnid").style.display = "none"
+            }).catch((err) => {
+                console.log(err)
+            })
     }
     // debugger
-    
+
     // const handleReturn = (e)=>{
-        //     // setEditorState(e.target.innerText)
-        
-        //     let n=e.target.firstChild.lastChild.childElementCount
-        //     setValues(editorState+ "\n" +e.target.firstChild.lastChild.innerText)    
-        // }
+    //     // setEditorState(e.target.innerText)
+
+    //     let n=e.target.firstChild.lastChild.childElementCount
+    //     setValues(editorState+ "\n" +e.target.firstChild.lastChild.innerText)    
+    // }
 
     // e.target.firstChild.lastChild.firstChild.nextElementSibling.innerText
     // e.target.firstChild.lastChild.childElementCount
     return (
-        <div>
+        <div >
             {
-                addeducations ?  <Experience_form3/>:""
+                addeducations ? <Experience_form3 /> : ""
             }
-            <div className='row namedata d-flex' style={{ textAlign: "left", width: "1000px", marginTop: "30px", marginLeft: "50px" }}>
-                <div className='col-sm-12' style={{ textAlign: "left" }}>
+            {/*  */}
+            <div className='ml-5'>
+
+            <div className='row namedata' style={{ textAlign: "left", marginTop: "30px" }}>
+
+                <div className="col-lg-2 col-md-2 col-sm-12 mt-3">
+                    <TextField id="outlined-basic" label=" job_title" variant="outlined" className='formate1'
+                        value={Workdata.job_title} onChange={(e) => handleOnChange(e)} name="job_title" autoComplete="off"
+                    />
                 </div>
-                <div className='col-lg-3 col-md-3 col-sm-12 d-flex' >
-                    <h5 className='mt-2'> Job_title:</h5><i className="fa fa-snowflake-o Tabicons"></i>
+
+                <div className="col-lg-2 col-md-2 col-sm-12 mt-3">
+                    <TextField id="outlined-basic" label=" Company_name" variant="outlined" className='formate1'
+                        value={Workdata.Company_name} onChange={handleOnChange} name="Company_name" autoComplete="off"
+                    />
                 </div>
-                <div className='col-lg-4 col-md-4 col-sm-12 '>
-                    <TextField id="outlined-basic" label=" job_title" variant="outlined"
-                        sx={{ width: "280px" }} value={Workdata.job_title} onChange={(e) => handleOnChange(e)} name="job_title" autoComplete="off"
+                <div className='col-lg-2 col-md-2 col-sm-12 mt-3'>
+                    <TextField id="outlined-basic" label=" Project Name" variant="outlined" className='formate1'
+                        value={Workdata.project_name} onChange={handleOnChange} name="project_name" autoComplete="off"
+                    />
+                </div>
+                <div className='col-lg-2 col-md-2 col-sm-12 mt-3'>
+                    <TextField id="outlined-basic" label=" url" variant="outlined" className='formate1'
+                        value={Workdata.project_urls} onChange={handleOnChange} name="project_urls" autoComplete="off"
+                    />
+                </div>
+                <div className='col-lg-2 col-md-2 col-sm-12 mt-3'>
+                    <TextField id="outlined-basic" label="City" variant="outlined" className='formate1'
+                        value={Workdata.city} onChange={handleOnChange} name="city" autoComplete="off"
                     />
                 </div>
 
 
             </div>
-            <div className='row namedata d-flex' style={{ textAlign: "left", width: "1000px", marginTop: "30px", marginLeft: "50px" }}>
-                <div className='col-lg-3 col-md-3 col-sm-12 d-flex' >
-                    <h5 className='mt-2'> Company_name:</h5><i className="fa fa-snowflake-o Tabicons"></i>
-                </div>
-                <div className='col-lg-4 col-md-4 col-sm-12 '>
-                    <TextField id="outlined-basic" label=" Company_name" variant="outlined"
-                        sx={{ width: "280px" }} value={Workdata.Company_name} onChange={handleOnChange} name="Company_name" autoComplete="off"
-                    />
-                </div>
 
-            </div>
             {/*  */}
 
-            <div className='row namedata' style={{ textAlign: "left", width: "1000px", marginTop: "30px", marginLeft: "50px" }}>
-                <div className='col-lg-3 col-md-3 col-sm-12 d-flex' >
-                    <h5 className='mt-2'> Job_discription:</h5><i className="fa fa-snowflake-o Tabicons"></i>
-                </div>
-                <div className='col-lg-4 col-md-4 col-sm-12 d-flex'  style={{justifyContent:"space-between"}}>
-                    <div>
-                        <TextField id="outlined-basic" className="removedata" label="Title " variant="outlined" onChange={handlechangedata} value={discriptionData} autoComplete="off"
-                            sx={{ width: "280px" }} />
-                    </div>
-                </div>
-                <div className='col-lg-3 col-md-3 col-sm-12 mt-2'>
-                    <button onClick={openBox} className='btn btn-primary'>Add More Points</button>
-                </div>
+            <div className='row namedata ' style={{ textAlign: "left", marginTop: "30px" }}>
+                <div className='col-lg-2 col-md-2 col-sm-12 mt-3' >
 
-                    <div className='points col-lg-7  col-md-7  col-sm-12 offset-5 mt-3 text-left mb-3'>
-
-                        {
-
-                            inputData.map((items, key) => {
-                                return (
-                                    <p key={key} >*&nbsp;{items.slice(1,items.length-1)}</p>
-                                )
-                            })
-                        }
-                    </div>
-            </div>
-
-
-
-            <div className='row namedata d-flex' style={{ textAlign: "left", width: "1000px", marginTop: "30px", marginLeft: "50px" }}>
-                <div className='col-lg-3 col-md-3 col-sm-12 d-flex' >
-                    <h5 className='mt-2'> Project_urls:</h5><i className="fa fa-snowflake-o Tabicons"></i>
-                </div>
-                <div className='col-lg-4 col-md-4 col-sm-12 '>
-                    <TextField id="outlined-basic" label=" url" variant="outlined"
-                        sx={{ width: "280px" }} value={Workdata.project_urls} onChange={handleOnChange} name="project_urls" autoComplete="off"
-                    />
-                </div>
-
-            </div>
-
-            <div className='row namedata d-flex' style={{ textAlign: "left", width: "1000px", marginTop: "30px", marginLeft: "50px" }}>
-                <div className='col-lg-3 col-md-3 col-sm-12 d-flex' >
-                    <h5 className='mt-2'> Project Name:</h5><i className="fa fa-snowflake-o Tabicons"></i>
-                </div>
-                <div className='col-lg-4 col-md-4 col-sm-12 '>
-                    <TextField id="outlined-basic" label=" Project Name" variant="outlined"
-                        sx={{ width: "280px" }} value={Workdata.project_name} onChange={handleOnChange} name="project_name" autoComplete="off"
-                    />
-                </div>
-
-            </div>
-
-
-            <div className='row namedata' style={{ textAlign: "left", width: "1000px", marginTop: "30px", marginLeft: "50px" }}>
-                <div className='col-lg-3 col-md-3 col-sm-12 d-flex' >
-                    <h5 className='mt-2'>Country:</h5><i className="fa fa-snowflake-o Tabicons"></i>
-                </div>
-                <div className='col-lg-4 col-md-4 col-sm-12 mb-2' >
-
-                    <select id="country" value={Workdata.country} onChange={handleOnChange} name="country" className="form-control" style={{ width: "280px", height: "57px" }}>
-                        <option value="value" selected>Select Cuntry</option>
+                    <select id="country" value={Workdata.country} onChange={handleOnChange} name="country" className="form-control formate1" style={{ height: "57px" }}>
+                        <option value="value" selected>Select Country</option>
                         <option value="Afghanistan">Afghanistan</option>
                         <option value="Afghanistan">Afghanistan</option>
                         <option value="Åland Islands">Åland Islands</option>
@@ -453,50 +407,71 @@ export default function Experience_form2() {
                         <option value="Zimbabwe">Zimbabwe</option>
                     </select>
                 </div>
-                <div className='col-lg-4 col-md-4 col-sm-12'>
-                    <TextField id="outlined-basic" label="City" variant="outlined"
-                        sx={{ width: "280px" }} value={Workdata.city} onChange={handleOnChange} name="city" autoComplete="off"
-                    />
-                </div>
-            </div>
-            <div className='row namedata' style={{ textAlign: "left", width: "1000px", marginTop: "30px", marginLeft: "50px" }}>
-                <div className='col-lg-3 col-md-3 col-sm-12 d-flex' >
-                    <h5 className='mt-2'>Date:</h5><i className="fa fa-snowflake-o Tabicons1"></i>
-                </div>
+                <div className='col-lg-2 col-md-2 col-sm-12 mt-3'>
 
-                <div className='col-lg-4 col-md-4 col-sm-12 '>
                     <div className='dateformate'>
                         <input type="date" value={Workdata.start_date} onChange={handleOnChange} name="start_date" style={{ paddingLeft: "15px", paddingRight: "15px" }} autoComplete="off" />
                         <p style={{ margin: "10px 10px" }}>Start date</p>
                     </div>
                 </div>
-                <div className='col-lg-4 col-md-4 col-sm-12 '>
+                <div className='col-lg-2 col-md-2 col-sm-12 mt-3'>
                     <div className='dateformate'>
                         <input type="date" value={Workdata.end_date} onChange={handleOnChange} name="end_date" style={{ paddingLeft: "15px", paddingRight: "15px" }} autoComplete="off" />
                         <p style={{ margin: "10px 10px" }}>End date</p>
 
                     </div>
-                    <div className='navtab1 d-flex' >
+                </div>
 
-                        <div className='btn col-lg-9 col-sm-12' style={{ marginTop: "10px" }} >
-                            <button onClick={opennewbox} id="addmorebtn" className='btn btn-primary' style={{ display: "none" ,backgroundColor:"blue"}}>+</button>
+                <div className='col-lg-4 col-md-4 col-sm-12 mt-3'>
+                    <div className='' style={{ display: "flex", justifyContent: "space-between" }}>
+                        <div className=''>
+                            <TextField id="outlined-basic" className="removedata" label="Your Roles" variant="outlined" onChange={handlechangedata} value={discriptionData} autoComplete="off"
+                                sx={{ width: "230px" }} />
                         </div>
-                        <div className='btn2 col-lg-9 col-sm-12'>
-                            <Link to="/all_resume"><button id="nextbtnid" style={{ display: "none" }} className="nextbtn">Show Resume</button></Link>
-                            <button onClick={savedata} id="savebtnid" style={{ display: "block" }}>Submit Form</button>
-                            
-                        </div>
-                        <div className='btn col-lg-9 col-sm-12'>
+                        <div className=' mt-2'>
+                            <button onClick={openBox} style={{ backgroundColor: "#806c53", border: "none", padding: "7px 10px", color: "white" }}>Add More Points</button>
                         </div>
 
+                    </div>
+                    <div className='points col-lg-7  col-md-7  col-sm-12  mt-3 text-left mb-3'>
+
+                        {
+
+                            inputData.map((items, key) => {
+                                return (
+                                    <p key={key} >*&nbsp;{items.slice(1, items.length - 1)}</p>
+                                )
+                            })
+                        }
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div className='row' style={{ textAlign: "left" }}>
+                <div className='navtab1 d-flex mt-3 ml-3' >
+
+                    <div className='btn2'>
+                        <Link to="/all_resume"><button id="nextbtnid" style={{ display: "none" }} className="nextbtn">Show Resume</button></Link>
+                        <button onClick={savedata} id="savebtnid" style={{ display: "block" }}>Submit Form</button>
+
+                    </div>
+                    <div className='btn'>
+                        <button onClick={opennewbox} id="addmorebtn" className='btn btn-primary' style={{ display: "none", backgroundColor: "blue" }}>+</button>
                     </div>
 
 
                 </div>
+
+
+
             </div>
             <hr style={{ height: "1px", backgroundColor: "#49444385" }}></hr>
-           
-
+            {/*  */}
+            </div>
 
         </div>
     )

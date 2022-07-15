@@ -12,7 +12,7 @@ export default function Tamplates() {
             <Types_resume/>
         </div>
         <div className='text-center' style={{margin:"60px 0px"}}>
-            <h3>Tamplates</h3>
+            <h3 className='textcolor'>Tamplates</h3>
         </div>
         <div>
             <Resume5/>

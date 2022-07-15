@@ -9,6 +9,8 @@ import { BASE_URL, NGROK_URL } from '../config';
 export default function Personal_details() {
 
     const[selectfile,setselectfile]=useState("")
+    const [file, setFile] = useState();
+   
 
     const [ProfileData, setProfileData] = useState({
         first_name: '',
@@ -51,7 +53,6 @@ export default function Personal_details() {
         // await axios.post(`${NGROK_URL}/api/user/`, data, config)
        
         .then((res) => {
-            // debugger
         window.localStorage.setItem('id', JSON.stringify(res.data.id))
         // document.getElementById("savebtnid").style.display = "none"
         // document.getElementById("nextbtnid").style.display = "block"
@@ -59,16 +60,48 @@ export default function Personal_details() {
         }).catch((err) => {
             console.log(err)
         })
+        console.log(data)
     }
-
  const handlefilesubmite=(e)=>{
     
     setselectfile(e.target.files[0])
+    setFile(URL.createObjectURL(e.target.files[0]));
  }
 
 //  console.log(ProfileData)
 //  console.log(selectfile)
+function ValidateEmail() {
+    var email1 = document.getElementById("txtEmail");
+    var lblError = document.getElementById("lblError");
+    lblError.innerHTML= "";
+    var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/
+    if (!expr.test(ProfileData.email)) {
+        lblError.innerHTML = "Invalid email please use @gmail.com.";
+    }
+}
 
+function Validatephone() {
+    var phoneError = document.getElementById("phoneError");
+    if(ProfileData.phone_number.length!=10){
+        phoneError.innerHTML = "Please put 10 digit mobile number";
+    }
+    
+    else{
+        phoneError.innerHTML = "";
+
+    }
+}
+function Validatepincode() {
+    var pinerror = document.getElementById("pinerror");
+    if(ProfileData.pin_code.length!=6){
+        pinerror.innerHTML = "Please put 6 digit pin code";
+    }
+    
+    else{
+        pinerror.innerHTML = "";
+
+    }
+}
 
     return (
         <>
@@ -88,8 +121,9 @@ export default function Personal_details() {
                 >
                 </Box>
                 <div className='row namedata' >
-                <div className='col-lg-4 col-md-4 col-sm-12 '>
-                <input type="file" className=''onChange={handlefilesubmite} name="profile_image"></input>
+                <div className='col-lg-12 col-md-12 col-sm-12 d-flex '>
+                <input type="file" className='' onChange={handlefilesubmite} name="profile_image"></input>
+                <img src={file} />
                  </div>
                 </div>
 
@@ -115,7 +149,7 @@ export default function Personal_details() {
                         <h5 className='mt-2'>Summary:</h5><i className="fa fa-snowflake-o Tabicons"></i>
                     </div>
                     <div className='col-lg-5 col-md-5 col-sm-12 '>
-                        <input className='form-control' value={ProfileData.profile_summary} onChange={handleOnChange} name="profile_summary" autoComplete="off"></input>
+                        <textarea className='form-control' value={ProfileData.profile_summary} onChange={handleOnChange} name="profile_summary" autoComplete="off"></textarea>
 
                     </div>
 
@@ -125,13 +159,14 @@ export default function Personal_details() {
                         <h5 className='mt-2'>Email:</h5><i className="fa fa-snowflake-o Tabicons"></i>
                     </div>
                     <div className='col-lg-5 col-md-5 col-sm-12 '>
-                        <input className='form-control' value={ProfileData.email} onChange={handleOnChange} name="email" autoComplete="off"></input>
+                        <input className='form-control' value={ProfileData.email} onChange={handleOnChange} name="email" autoComplete="off" onKeyUp={ValidateEmail}></input>
+                        <p style={{color:"red" }} id="lblError"></p>
                     </div>
 
                 </div>
                 <div className='row namedata' >
                     <div className='col-lg-2 col-md-2 col-sm-12 d-flex' >
-                        <h5 className='mt-2'>Social Link:</h5><i className="fa fa-snowflake-o Tabicons"></i>
+                        <h5 className='mt-2'>Social Link:</h5>
                     </div>
                     <div className='col-lg-5 col-md-5 col-sm-12 '>
                         <input className='form-control' value={ProfileData.social_links} onChange={handleOnChange} name="social_links" autoComplete="off"/>
@@ -157,9 +192,10 @@ export default function Personal_details() {
                     </div>
                    
                     <div className='col-lg-4 col-md-4 col-sm-12'>
-                        <TextField id="outlined-basic" label="Phone Number" variant="outlined"
-                            value={ProfileData.phone_number}name="phone_number" onChange={handleOnChange} autoComplete="off"
+                        <TextField id="outlined-basic" label="Phone Number" variant="outlined" onKeyUp={Validatephone}  className="txtphone"
+                            value={ProfileData.phone_number} name="phone_number" onChange={handleOnChange} autoComplete="off" 
                         />
+                    <p style={{color:"red" }} id="phoneError"></p>
                     </div>
                 </div>
                  
@@ -168,9 +204,10 @@ export default function Personal_details() {
                         <h5 className='mt-2'>Pin Code:</h5><i className="fa fa-snowflake-o Tabicons"></i>
                     </div>
                  <div className='col-lg-4 col-md-4 col-sm-12 '>
-                        <TextField id="outlined-basic" label="Pin Code" variant="outlined"
+                        <TextField id="outlined-basic" label="Pin Code" variant="outlined" onKeyUp={Validatepincode}
                             value={ProfileData.pin_code} onChange={handleOnChange} name="pin_code" autoComplete="off"
                         />
+                        <p style={{color:"red" }} id="pinerror"></p>
                     </div>
                  </div>
 

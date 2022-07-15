@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Const from './Const'
 import { BASE_URL } from '../config'
+import signup_banner from '../images/signup_banner.png'
+
 
 export default function Signup(props) {
-
     const [name, setName] = useState("")
 
     const [lname, setlName] = useState("")
@@ -54,14 +55,16 @@ export default function Signup(props) {
         if (pass1 !== pass2) {
             document.getElementById("pass2").style.display = "block";
             document.getElementById("pass2").style.color = "red";
-        } else {
+        }
+      
+        else {
             document.getElementById("pass2").style.display = "none";
             // setclear(clear.pass2="a")
             // debugger
             let data = new FormData()
             // let url="http://127.0.0.1:8000"
-            
-            debugger
+
+            // debugger
             // let ngrok = "https://4d4f-2405-201-300b-7072-7568-f976-cbbf-7a4d.in.ngrok.io"
             data.append('first_name', name)
             data.append('last_name', lname)
@@ -72,7 +75,6 @@ export default function Signup(props) {
             axios.post(`${BASE_URL}/api/registers/`, data)
                 // axios.post(`${ngrok}/api/registers/`,data)
                 .then((res) => {
-                    debugger
                     window.localStorage.setItem('id', JSON.stringify(res.data.id));
                     window.location.href = "/signin";
 
@@ -80,56 +82,79 @@ export default function Signup(props) {
                     console.log(err)
                 })
         }
+    }
+    function ValidateEmail() {
+        var email1 = document.getElementById("txtEmail").value;
+        var lblError = document.getElementById("lblError");
+        lblError.innerHTML= "";
+        var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/
+        if (!expr.test(email1)) {
+            lblError.innerHTML = "Invalid email please use @gmail.com.";
+        }
+    }
+    function Validatephone() {
+        var phoneError = document.getElementById("phoneError");
+        if(num.length!=10){
+            phoneError.innerHTML = "Please put 10 digit mobile number";
+        }
+    
+        else{
+            phoneError.innerHTML = "";
 
-      
-
+        }
     }
     return (
         <div className='signupbg'>
-            <div className='container'>
-                <div className='row signupform' >
-                    <div className='signup_containt' style={{ width: "60%", marginTop: "40px" }} >
+                <div className='row' style={{display:"flex"}}>
 
-                        <div className='col-sm-12' style={{ textAlign: "center" }}>
-                            <h2>Sign Up</h2>
+                    <div className='col-sm-6  signupimg' >
+                        {/* <img src={signup_banner}></img> */}
+                    </div>
+
+                <div className='col-sm-6 signupform' >
+                    <div className='row signup_containt' >
+
+                        <div  style={{ textAlign: "center" }}>
+                            <h2 style={{fontFamily:"'Cormorant SC', serif"}}>Sign Up</h2>
                         </div>
-                        <div className='col-sm-12 mt-5'>
-                            <form>
-                                <div className='d-flex ' style={{ justifyContent: "space-between" }}>
+                        <div className=' mt-5'>
+                            <form >
+                                <div className='row'>
 
-                                    <div>
-                                        <label>Firsname</label>
-                                        <input className='form-control' type="text" style={{ width: "330px" }} value={name} onChange={nameHandler}></input>
-                                        <p style={{ display: "none", margin: "5px 10px" }} id="name">please enter valid name</p>
+                                    <div className='col-sm-6'>
+                                        <label>Firtsname</label>
+                                        <input className='form-control' type="text" style={{ width: "300px" }} value={name} onChange={nameHandler}></input>
 
                                     </div>
-                                    <div >
-                                        <label>lastname</label>
-                                        <input className='form-control' type="text" style={{ width: "330px" }} value={lname} onChange={lnameHandler}></input>
-                                        <p style={{ display: "none", margin: "5px 10px" }} id="lname">please enter valid name</p>
+                                    <div className='col-sm-6'>
+                                        <label>Lastname</label>
+                                        <input className='form-control' type="text" style={{ width: "300px" }} value={lname} onChange={lnameHandler}></input>
 
                                     </div>
                                 </div>
-                                <div style={{ marginTop: "20px" }} >
+                                <div style={{ marginTop: "10px" }} >
                                     <label>Username</label>
                                     <input className='form-control' type="text" value={username} onChange={userHandler}></input>
                                 </div>
-                                <div style={{ marginTop: "20px" }}>
+                                <div style={{ marginTop: "10px" }}>
                                     <label>Email</label>
-                                    <input className='form-control' type="email" value={email} onChange={emailhandler}></input>
+                                    <input className='form-control' type="text" value={email} onChange={emailhandler} onKeyUp={ValidateEmail} id="txtEmail" autoComplete='off'></input>
+                                    <p style={{color:"red" }} id="lblError"></p>
+
                                 </div>
 
-                                <div style={{ marginTop: "20px" }}>
+                                <div style={{ marginTop: "10px" }}>
                                     <label>Mobile number</label>
-                                    <input className='form-control' type="number" value={num} onChange={numHandler}></input>
-                                    <p style={{ display: "none", margin: "5px 10px" }} id="number"></p>
+                                    <input className='form-control' type="number" value={num} onChange={numHandler} onKeyUp={Validatephone} ></input>
+                                    <p style={{color:"red" }} id="phoneError"></p>
+
                                 </div>
-                                <div style={{ marginTop: "20px" }}>
+                                <div style={{ marginTop: "10px" }}>
                                     <label>Password</label>
                                     <input className='form-control' type="password" value={pass1} onChange={pass1Handler}></input>
                                     <p style={{ display: "none", margin: "5px 10px" }} id="pass1">please enter valid password</p>
                                 </div>
-                                <div style={{ marginTop: "20px" }}>
+                                <div style={{ marginTop: "10px" }}>
                                     <label>Conform Password</label>
                                     <input className='form-control' type="password" value={pass2} onChange={pass2Handler}></input>
                                     <p style={{ display: "none", margin: "5px 10px" }} id="pass2">password not match</p>
@@ -140,13 +165,13 @@ export default function Signup(props) {
                             </form>
                         </div>
                         <div className='text-center' >
-                            <hr style={{ backgroundColor: "white", marginTop: "40px" }}></hr>
-                            <p>Already Have An Account?<Link to="/signin"><span style={{ color: "#0b3d51" }}> Sign in </span></Link></p>
+                            <hr style={{ backgroundColor: "white", marginTop: "10px", textDecoration: "none" }}></hr>
+                            <p>Already Have An Account?<Link to="/signin" style={{ textDecoration: "none" }}><span style={{ color: "#fff", textDecoration: "none" }}> Sign in </span></Link></p>
                         </div>
                     </div>
                 </div>
 
-            </div>
+                </div>
         </div>
     )
 }

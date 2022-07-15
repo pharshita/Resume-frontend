@@ -66,7 +66,7 @@ export default function SideNav() {
                             <div>
                                 <ul>
                                 <li className='current'> 
-                              <i class="fa fa-user" style={{fontSize:"22px"}}></i>  <Link to="/"><a className='personalnav'>Personal</a></Link>
+                              <i class="fa fa-user" style={{fontSize:"22px"}}></i>  <Link to="/user"><a className='personalnav'>Personal</a></Link>
                                 </li>
                                 <li>
                                 <i class="fa fa-graduation-cap"  style={{fontSize:"22px",color:"white"}}></i> <Link to="/education"><a className='personalnav' >Education</a></Link> 

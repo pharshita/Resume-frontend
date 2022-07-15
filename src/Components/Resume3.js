@@ -17,7 +17,7 @@ export default function Resume3() {
 
         // http://127.0.0.1:8000/api/resume/1/
         axios.get(` ${BASE_URL}/api/resume/${id}/`, config).then((res) => {
-          // axios.get(` ${ngrok}/api/resume/${id}/`, config).then((res) => {
+            // axios.get(` ${ngrok}/api/resume/${id}/`, config).then((res) => {
 
             setdata([res.data])
         }).catch((err) => {
@@ -95,30 +95,32 @@ export default function Resume3() {
                                             <div className='col-sm-12' style={{ height: "2px", backgroundColor: "#36c4b2" }}></div>
                                             <div className='col-sm-12 mt-3'><p>{items.profile_summary}</p></div>
                                         </div>
-
-
+                                        {
+                                            items.Experience[0]===undefined?"":
                                         <div >
                                             <div className='col-sm-12 mt-5'>
                                                 <h4>Work Experience</h4>
                                             </div>
                                             <div>
                                                 <div className='col-sm-12' style={{ height: "2px", backgroundColor: "#36c4b2" }}></div>
-                                                <div className='pl-3'>
+                                                {
+                                                    items.Experience[0] === undefined ? "" :
+                                                        <div className='pl-3'>
 
-                                                    <div className='row pt-4'>
-                                                        <div className='col-sm-6'>
+                                                            <div className='row pt-4'>
+                                                                <div className='col-sm-6'>
 
-                                                            <h5 style={{ textTransform: "capitalize" }}>{items.Experience[0].job_title} in {items.Experience[0].Company_name} {items.Experience[0].city},{items.Experience[0].country}</h5>
-                                                        </div>
-                                                        <div className='col-sm-6'>
-                                                            <p style={{ textAlign: "end", color: "black" }}>{items.Experience[0].start_date} to {items.Experience[0].end_date}</p>
+                                                                    <h5 style={{ textTransform: "capitalize" }}>{items.Experience[0].job_title} in {items.Experience[0].Company_name} {items.Experience[0].city},{items.Experience[0].country}</h5>
+                                                                </div>
+                                                                <div className='col-sm-6'>
+                                                                    <p style={{ textAlign: "end", color: "black" }}>{items.Experience[0].start_date} to {items.Experience[0].end_date}</p>
 
-                                                        </div>
-                                                    </div>
-                                                    <h5>{items.Experience[0].project_name}</h5>
+                                                                </div>
+                                                            </div>
+                                                            <h5>{items.Experience[0].project_name}</h5>
 
-                                                    {/* <p>{items.Experience[0].job_discription}</p> */}
-{
+                                                            {/* <p>{items.Experience[0].job_discription}</p> */}
+                                                            {
                                                                 getdata === null ? "" :
                                                                     getdata.map((item, key) => {
                                                                         return (
@@ -130,7 +132,9 @@ export default function Resume3() {
                                                             {
                                                                 items.Experience[0].project_urls === '' ? "" :
                                                                     <p><strong>Project_urls:-</strong> <a href={items.Experience[0].project_urls} target="_blank"> {items.Experience[0].project_urls} </a></p>
-                                                            }                                                </div>
+                                                            }
+                                                        </div>
+                                                }
 
                                                 {
                                                     items.Experience[1] === undefined ? "" :
@@ -460,7 +464,7 @@ export default function Resume3() {
 
                                             </div>
                                         </div>
-
+                                        }
 
                                         <div>
                                             <div className='col-sm-12 mt-5'>

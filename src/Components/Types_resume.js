@@ -1,18 +1,17 @@
 import { display } from '@mui/system'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Logout from './Logout';
 
 export default function Types_resume() {
- const cliked=()=>{
-  window.localStorage.clear();
-  window.location.href="/signin"
- }
-
   return (
     <div>
-      <div className='row pr-5'>
-        <div className='row' style={{display:"flex",justifyContent:"space-between"}}>
-        <div className='col-sm-11 mt-5 text-center'  >
+      <div className='row '>
+        <div className='row' >
+        <div style={{display:"flex",justifyContent:"end"}} className="mt-4">
+          <Logout/>
+        </div>
+        <div className='text-center col-sm-12'  >
           <h2>Types Of Resume</h2>
           <div className="dropdown">
             <button className="dropbtn">Select One</button>
@@ -25,9 +24,6 @@ export default function Types_resume() {
         </div>
 
 
-        <div className='col-sm-1 mt-5 text-center'>
-          <button className='dropbtn' onClick={cliked}>Logout</button>
-        </div>
         </div>
 
 

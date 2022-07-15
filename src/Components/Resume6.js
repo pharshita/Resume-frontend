@@ -130,13 +130,15 @@ export default function Resume6() {
 
                                                     </ul>
                                                 </div>
-
+                                                {
+                                                    items.Experience[0]===undefined?"":
                                                 <div className='pt-3'>
                                                     <div style={{ padding: "20px 0px 30px 20px", color: "black", marginBottom: "0px" }}>
                                                         <h3>Work Experience</h3>
                                                     </div>
                                                     <div style={{ paddingRight: "20px" }}>
-
+                                                        {
+                                                            items.Experience[0]===undefined?"":
                                                         <div className='pl-3' style={{ textTransform: "capitalize" }}>
 
 
@@ -154,6 +156,8 @@ export default function Resume6() {
                                                             <p ><strong>Project_urls:-</strong> <a style={{ paddingRight: "20px" }} href={items.Experience[0].project_urls} target="_blank"> {items.Experience[0].project_urls} </a></p>
                                                             <p >{items.Experience[0].start_date} to {items.Experience[0].end_date}</p>
                                                         </div>
+                                                        }
+
                                                         {
                                                             items.Experience[1] === undefined ? "" :
                                                                 <div className='pl-3 pt-4' style={{ textTransform: "capitalize" }}>
@@ -395,6 +399,8 @@ export default function Resume6() {
 
                                                     </div>
                                                 </div>
+                                                }
+
                                             </div>
                                         </div>
                                         <div style={{ width: "59%" }}>

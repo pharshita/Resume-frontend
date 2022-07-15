@@ -10,13 +10,97 @@ body{
 html{
   overflow: overlay;
 }
+/*  */
 
+.forgot1{
+  border-radius: 10px;
+  border: 1px solid rgba(37, 36, 36, 0.18);  
+   text-align: center;
+   margin-left: 10px;
+   box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+   font-size: 16px;
+   font-family: 'Times New Roman', Times, serif;
+   padding: 30px;
+   margin-top: 70px;
+  }
+  .forgot1 input{
+    padding-top: 23px;
+    padding-bottom: 6px;
+    height: 30px;
+    background-color: #e6e3e3;
+    border-bottom: 1px solid black;
+    }
+  .forgot1 input:focus{
+    background-color: #f3efef;
+    border-bottom:2px solid #383888;
+    border-top:none ;
+    border-left:none ;
+    border-right:none ;
+    box-shadow:none;
+  }
+  .forgot1 .btn_1{
+    padding: 8px 19px;
+    font-size: 0.9375rem;
+    color: #fff;
+    background-color: #383888;
+    width: 55%;
+    border: none;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    border-radius: 5px;
+    margin-top: 22px;
+
+}
+.forgot1 .btn_1:hover{
+  background-color: #232777;
+}
+
+.forgot{
+  border-radius: 10px;
+  border: 1px solid rgba(37, 36, 36, 0.18);  
+   text-align: center;
+   margin-left: 10px;
+   box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+   font-size: 16px;
+   font-family: 'Times New Roman', Times, serif;
+   padding: 30px;
+   margin-top: 70px;
+  }
+  .forgot input{
+    padding-top: 23px;
+    padding-bottom: 6px;
+    height: 50px;
+    background-color: #e6e3e3;
+    border-bottom: 1px solid black;
+    }
+  .forgot input:focus{
+    background-color: #f3efef;
+    border-bottom:2px solid #383888;
+    border-top:none ;
+    border-left:none ;
+    border-right:none ;
+    box-shadow:none;
+  }
+  .forgot .btn_1{
+    padding: 8px 19px;
+    font-size: 0.9375rem;
+    color: #fff;
+    background-color: #383888;
+    width: 55%;
+    border: none;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    border-radius: 5px;
+    margin-top: 22px;
+
+}
+.forgot .btn_1:hover{
+  background-color: #232777;
+}
+/*  */
 .header{
   text-align: center;
   overflow: hidden;
-  background-color: #007bff;
+  background-color: #4b85aaed;
   color: white;
-  margin-left: -16px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -27,8 +111,8 @@ html{
  margin-top: 30px;
 }
 .new{
-  background-color: #007bff;
-  height: 1000px;
+  background-color: #4b85aaed;
+  height: 1150px;
   overflow: hidden;
 }
 .new a{
@@ -154,16 +238,16 @@ html{
 }
 .navtab1 .btn2{
   justify-content: left;
-  margin-top: 66px;
-  display: flex;
-  margin-left: 30px
+    margin-top: 7px;
+    display: flex;
+    /* margin-left: 30px */
 }
 .navtab1 .btn2 button{
   padding: 10px 20px;
-  background-color: #353232;
+  background-color: rgb(88 142 176);
   border: none;
   color: white;
-  margin-right: -30px;
+  /* margin-right: -30px; */
   
 }
 .navtab1 .btn2 a{
@@ -223,10 +307,20 @@ input[type=file]::file-selector-button {
   transition: 1s;
 }
 .dateformate input{
-  width: 281px;
-    height: 55px;
+  width: 160px;
+    height: 54px;
+    padding: 0px 15px;
 }
-
+.dateformate1{
+  width: 160px;
+}
+.formate1{
+  width: 180px;
+}
+.namedata #education{
+  width: 160px;
+  height: 55px;
+}
 .resume2 a{
   color: rgb(2, 9, 80);
   text-decoration: none;
@@ -293,29 +387,56 @@ input[type=file]::file-selector-button {
   justify-content: center;
   display: flex;
 }
-.signin_containt{
-  background-image: url("images/signin.jpg");
+.signupimg{
+  /* background-image:url("images/signup_banner.png"); */
+  background-image: url("images/signup_banner_img.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+
+.borderbox{
+  /* background: rgba( 255, 255, 255, 0.05 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 2.5px );
+-webkit-backdrop-filter: blur( 2.5px );
+border-radius: 10px;
+border-right: 1px solid rgba( 255, 255, 255, 0.18 ); */
+border-right: 1px solid #4a4a4a;
+}
+.signin_containt{
+  /* background-image: url("images/signin.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; */
   color: white;
   padding: 80px;
   margin: 250px;
+  background-color: #2a6da563;
 }
-.signupbg{
+.banner{
+  background-image: url("images/signin.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+}
+/* .signupbg{
   background-image: linear-gradient(45deg, #117a8b 0%, #103d6f 100%);  
-}
+  padding: 20px;
+} */
 .signup_containt{
   /* background-color: #FBDA61; */
   background-repeat: no-repeat;
   background-size: cover;
-  color: black;
-  padding: 80px;
-  margin: 53px;
-  background: rgba(255, 255, 255, 0.783);
+  color: white;
+  font-size: 18px;
+  padding: 18px 30px;
+  /* margin: 53px; */
+  background-color: #4b85aaed;
 box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
 backdrop-filter: blur( 9px );
 -webkit-backdrop-filter: blur( 6px );
-border-radius: 10px;
+/* border-radius: 10px; */
 border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 .signup_containt input{
@@ -345,23 +466,33 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 .signup_containt button{
   text-align: center;
   display: flex;
-  background-color: #225f76;
+  background-color: #483d2d;
   justify-content: center;
   border-radius: 30px;
   padding: 10px;
   color: white;
+  font-size: 18px;
 
+}
+.resume8 p{
+  font-size: 16px;
 }
 
 .signup_containt button:hover{
-  background-color: #0b3d51;
-  color: white;
-}
-.signin_containt button:hover{
-  background-color: #094e98;
+  background-color: #806c53;
   color: white;
 }
 
+.dropbtn2{
+  padding: 20px;
+  background-color: rgb(60, 151, 169);
+  color: white;
+  border: none;
+  border-radius: 30px;
+}
+.dropbtn2:hover{
+  background-color: #297888;
+}
 .resume3{
   margin-top: 30px;
   width: 50%;
@@ -379,6 +510,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 .resume3 h5{
   font-weight: bold;
 }
+
 .resume3 h4{
   font-weight: bold;
   text-transform: capitalize;
@@ -398,11 +530,15 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 
 .dropbtn {
   background-color: #1b8fa9;
-  color: white;
-  padding: 16px 42px;
-  font-size: 16px;
-  border: none;
-  outline: none;
+    color: white;
+    padding: 11px 30px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+}
+.textcolor{
+  font-family: 'Cormorant SC', serif;
+    color: #2879a1;
 }
 
 .dropdown {
@@ -431,15 +567,15 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
   background-color: #1b8fa9;
   color: white;
 }
-.namedata .points{
+/* .namedata .points{
   margin-left: 250px;
-}
+} */
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
 .dropdown:hover{
-  background-color: #4cd1ef;
+  color: #4cd1ef;
 }
 .rdw-editor-toolbar .rdw-inline-wrapper {
   display: none ;
@@ -506,8 +642,8 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 
 .navtab1 .btn{
   display: flex;
-  justify-content: end;
-  margin-top: 50px;
+  justify-content: start;
+  /* margin-top: 50px; */
   
 }
 .navtab1 .btn button{
@@ -529,7 +665,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 .navtab .btn1 button{
   padding: 10px 20px;
-  background-color: #353232;
+  background-color: rgb(88 142 176);
   border: none;
   color: white;
 }
@@ -540,6 +676,29 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 .skillnav{
   margin-right: 30px;
 }
+.tab{
+  margin-top: 50px;
+}
+.tab td{
+  padding:  30px 30px;
+  text-align: left;
+}
+.head th{
+  background-color: #483d2d;
+  color: #fff;
+  padding: 10px 20px 10px 0px;
+}
+tbody tr:nth-child(even) 
+{
+  background-color: rgb(75 133 170 / 72%);
+    color: white;
+}
+tbody tr div button{
+  border: none;
+  background-color: transparent;
+
+}
+
 
 
 
@@ -574,6 +733,21 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
   display: flex;
   justify-content: center;
 }
+
+.skills{
+  margin-left: 60px;
+}
+.dateformate input{
+    border: 1px solid black;
+    width: 300px;
+}
+.dateformate1{
+  width: 300px;
+}
+.formate1{
+  width: 297px;
+}
+
 .navtab .btn1{
   display: flex;
   justify-content: center;
@@ -582,6 +756,9 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 .namedata .points{
   margin-left: 0px;
+}
+.namedata #education{
+  width: 300px;
 }
 }
 

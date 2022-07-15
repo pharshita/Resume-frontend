@@ -17,16 +17,22 @@ export default function Resume4() {
     const componentRef = useRef();
 
     const [data1, setdata] = useState([])
+    const[usrid, setUsrID] = useState()
+
+    useEffect(()=>{
+        if (window.localStorage.getItem('id')){
+            setUsrID(parseInt(window.localStorage.getItem('id')))
+        }
+    })
+
     useEffect(() => {
-        const id = window.localStorage.getItem('id')
         // console.log(id)
            
         let ngrok="https://4d4f-2405-201-300b-7072-7568-f976-cbbf-7a4d.in.ngrok.io"
         let url="http://127.0.0.1:8000"
         // http://127.0.0.1:8000/api/resume/1/
-        axios.get(` ${BASE_URL}/api/resume/${id}/`, config).then((res) => {
+        axios.get(` ${BASE_URL}/api/resume/${parseInt(window.localStorage.getItem('id'))}/`, config).then((res) => {
           // axios.get(` ${ngrok}/api/resume/${id}/`, config).then((res) => {
-
             setdata([res.data])
         }).catch((err) => {
             console.log(err)
@@ -146,7 +152,7 @@ export default function Resume4() {
                                                 <div className='col-sm-12 mt-5' style={{ color: "#018bb7", fontWeight: "bold" }}>
                                                     <h4>Professional Summary</h4>
                                                 </div>
-                                                <div className='col-sm-12 mt-3'><p>{items.profile_summary}</p></div>
+                                                <div className=' mt-3'><p>{items.profile_summary}</p></div>
                                             </div>
                                             <div className='col-sm-12' style={{ height: "2px", backgroundColor: "#018bb7" }}></div>
 
@@ -242,15 +248,20 @@ export default function Resume4() {
                                                         </div>
                                                 }
                                             </div>
-                                            <div className='col-sm-12' style={{ height: "2px", backgroundColor: "#018bb7" }}></div>
-
+                                            {
+                                                items.Experience[0]===undefined?"":
+                                                <>
+                                                <div className='col-sm-12' style={{ height: "2px", backgroundColor: "#018bb7" }}></div>
                                             <div>
                                                 <div className='col-sm-12 mt-5' style={{ color: "#018bb7", fontWeight: "bold" }}>
                                                     <h4>Experience</h4>
                                                 </div>
+                                                {
+                                                    items.Experience[0]===undefined?"":
                                                 <div className='pl-3'>
 
                                                     <div className='d-flex pt-4' style={{ justifyContent: "space-between" }}>
+                                                        
                                                         <div className=''>
                                                             <h5 style={{ textTransform: "capitalize" }}>{items.Experience[0].job_title}</h5>
                                                         </div>
@@ -260,8 +271,11 @@ export default function Resume4() {
                                                         </div>
                                                     </div>
                                                     <h5>{items.Experience[0].project_name}</h5>
-
+                                                     {
+                                                        
+                                                     }
                                                     {
+
                                                         getdata === null ? " " :
                                                         getdata.map((item, key) => {
                                                             return (
@@ -276,6 +290,7 @@ export default function Resume4() {
                                                         <h5 style={{ textTransform: "capitalize" }}>{items.Experience[0].Company_name} {items.Experience[0].city},{items.Experience[0].country}</h5>
 
                                                 </div>
+                                                }
                                                 {
                                                     items.Experience[1] === undefined ? "" :
                                                         <div className='pl-3 mt-3'>
@@ -635,8 +650,12 @@ export default function Resume4() {
                                                         </div>
                                                 } */}
                                             </div>
+                                                </>
+                                            }
 
-                                        </div>
+                                            </div>
+
+
 
                                     </div>
                                 </>

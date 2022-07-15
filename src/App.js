@@ -28,14 +28,19 @@ import Resume10 from './Components/Resume10';
 import Resume11 from './Components/Resume11';
 import Test from './Components/Test';
 import Const from './Components/Const';
+import Education2 from './Components/Education2';
+import Page1 from './Components/Page1';
+import Table from './Components/Table';
+import Forgot_pass from './Components/Forgot_pass';
+import Change_password from './Components/Change_password';
+import Verify_code from './Components/Verify_code';
 
 function App() {
-  var a="http://127.0.0.1:8000"
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Signup />} urldata={a}></Route>
+          <Route path='/' element={<Signup />} ></Route>
           <Route path='/signin' element={<Signin />}></Route>
           <Route path='/user' element={<SideNav />}></Route>
           <Route path='/education' element={<Education />}></Route>
@@ -57,8 +62,12 @@ function App() {
           <Route path="/basic" element={<Basic />}></Route>
           <Route path="/profession" element={<Professional />}></Route>
           <Route path="/tamplates" element={<Tamplates />}></Route>
-          <Route path="/test" element={<Test />}></Route>
           <Route path="/const" element={<Const/>}></Route>
+          <Route path="/education2" element={<Education2/>}></Route>
+          <Route path="/page1" element={<Page1/>}></Route>
+          <Route path="/forgot_password" element={<Forgot_pass/>}></Route>
+          <Route path="/change_password" element={<Change_password/>}></Route>
+          <Route path="/verify" element={<Verify_code/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>

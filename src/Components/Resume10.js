@@ -24,16 +24,16 @@ export default function Resume10() {
         // http://127.0.0.1:8000/api/resume/1/
         axios.get(` ${BASE_URL}/api/resume/${id}/`, config).then((res) => {
           // axios.get(` ${ngrok}/api/resume/${id}/`, config).then((res) => {
-
-            setdata([res.data])
-        }).catch((err) => {
-            console.log(err)
-        })
-    }, [])
-    let getdata = JSON.parse(window.localStorage.getItem('data'))
-    let getdata2 = JSON.parse(window.localStorage.getItem('data2'))
-    let getdata3 = JSON.parse(window.localStorage.getItem('data3'))
-    let getdata4 = JSON.parse(window.localStorage.getItem('data4'))
+              
+              setdata([res.data])
+            }).catch((err) => {
+                console.log(err)
+            })
+        }, [])
+        let getdata = JSON.parse(window.localStorage.getItem('data'))
+        let getdata2 = JSON.parse(window.localStorage.getItem('data2'))
+        let getdata3 = JSON.parse(window.localStorage.getItem('data3'))
+        let getdata4 = JSON.parse(window.localStorage.getItem('data4'))
     let getdata5 = JSON.parse(window.localStorage.getItem('data5'))
     let getdata6 = JSON.parse(window.localStorage.getItem('data6'))
     let getdata7 = JSON.parse(window.localStorage.getItem('data7'))
@@ -71,11 +71,16 @@ export default function Resume10() {
                                         <h5 style={{ fontWeight: "bold" }}>Personal Detail</h5>
                                         <p style={{ fontSize: "14px" }}>{items.profile_summary}</p>
                                     </div>
+                                   
                                     <div className='d-flex mt-5' style={{ justifyContent: "space-between" }}>
+                                        {
+                                            items.Experience[0]===undefined?"":
                                         <div style={{ width: "40%" }}>
                                             <div>
 
                                                 <h5 style={{ fontWeight: "bold", paddingLeft: "40px" }}>Experience</h5>
+                                                {
+                                                    items.Experience[0]===undefined?"":
                                                 <div style={{ padding: "10px 10px 10px 50px" }}>
 
 
@@ -94,6 +99,7 @@ export default function Resume10() {
                                                     <p style={{ paddingLeft: "20px" }}><strong>Project_urls:-</strong> <a href={items.Experience[0].project_urls} target="_blank"> {items.Experience[0].project_urls} </a></p>
 
                                                 </div>
+                                                }
                                                 {
                                                     items.Experience[1] === undefined ? "" :
                                                         <>
@@ -412,6 +418,7 @@ export default function Resume10() {
                                             </div>
 
                                         </div>
+                                        }
                                         <div style={{ width: "40%" }}>
 
 

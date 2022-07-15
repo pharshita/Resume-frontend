@@ -11,8 +11,8 @@ import { BASE_URL } from '../config';
 
 
 export default function Resume2() {
-    const config = { headers: { Authorization: `Bearer ${localStorage.getItem("token")}`,
-        'Access-Control-Allow-Credentials': true } }
+    const config = { headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, } }
+    // 'Access-Control-Allow-Credentials': true
     const componentRef = useRef();
 
     const [data1, setdata] = useState([])
@@ -20,10 +20,10 @@ export default function Resume2() {
         const id = window.localStorage.getItem('id')
         console.log(id)
 
-        axios.get(` ${BASE_URL}/api/resume/${id}/`, config).then((res) => {
-            debugger
+        axios.get(`${BASE_URL}/api/resume/${id}/`, config).then((res) => {
             // axios.get(` ${ngrok}/api/resume/${id}/`, config).then((res) => {            
-            setdata([res.data])
+                // debugger
+                setdata([res.data])
         }).catch((err) => {
             console.log(err)
         })
@@ -169,6 +169,8 @@ export default function Resume2() {
                                                     <p>{items.profile_summary}</p>
                                                 </div>
                                             </div>
+                                            {
+                                                items.Experience[0]===undefined?"":
                                             <div className='add' style={{ marginTop: "50px" }}>
                                                 <h4>Work Experience</h4>
                                                 <hr></hr>
@@ -466,6 +468,7 @@ export default function Resume2() {
                                                         </div>
                                                 } */}
                                             </div>
+                                            }
                                             <div className='add' style={{ marginTop: "50px" }}>
                                                 <h4>Education</h4>
                                                 <hr></hr>

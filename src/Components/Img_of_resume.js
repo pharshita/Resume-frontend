@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import resume4 from "../images/resume4.png"
 import resume9 from "../images/resume9.png"
 import resume3 from "../images/resume3.png"
-import resume8 from "../images/resume8.png"
+import resume11 from "../images/resume11.png"
 import resume5 from "../images/resume5.png"
 import resume6 from "../images/resume6.png"
 import resume2 from "../images/resume2.png"
@@ -30,7 +30,7 @@ export default function Img_of_resume() {
 
             </div>
             <div className='col-sm-3'>
-             <Link to="/resume8"><img src={resume8}/></Link> 
+             <Link to="/resume11"><img src={resume11}/></Link> 
             </div>
            </div>
            <div className='row' style={{display:"flex",justifyContent:"left",marginTop:"80px"}}>

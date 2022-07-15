@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField';
 
 import axios from 'axios';
 import Experience_form from './Experience_form';
+import Sample_Experience from './Sample_Experience';
 
 export default function Experience() {
    
@@ -12,13 +13,13 @@ export default function Experience() {
 
             <div>
                 <div className=' text-center'>
-                    <div className='row block' >
+                    <div className='row block'  >
                         <div className='col-sm-2 new text-center' style={{ paddingRight: "0px", paddingLeft: "0px" }}>
                             <nav>
                                 <div>
                                     <ul>
                                         <li>
-                                            <i className="fa fa-user" style={{ fontSize: "22px", color: "white" }}></i><Link to="/"><a className='personalnav'>Personal</a></Link>
+                                            <i className="fa fa-user" style={{ fontSize: "22px", color: "white" }}></i><Link to="/user"><a className='personalnav'>Personal</a></Link>
                                         </li>
                                         <li >
                                             <i className="fa fa-graduation-cap" style={{ fontSize: "22px", color: "white" }}></i> <Link to="/education"><a className='personalnav'>Education</a></Link>
@@ -42,7 +43,8 @@ export default function Experience() {
                                 <h4 >Fill Your Work Experience</h4>
                             </div>
                             <div>
-                                <Experience_form />
+                                {/* <Experience_form /> */}
+                                <Sample_Experience/>
                             </div>
 
                         </div>

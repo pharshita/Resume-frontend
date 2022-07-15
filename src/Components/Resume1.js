@@ -24,8 +24,8 @@ export default function Resume1() {
     console.log(id)
     // http://127.0.0.1:8000/api/resume/1/
     // debugger
-    // axios.get(`${BASE_URL}/api/resume/${id}/`, config).then((res) => {
-      axios.get(`http://localhost:8000/api/resume/${id}/`, config).then((res) => {
+    axios.get(`${BASE_URL}/api/resume/${id}/`, config).then((res) => {
+      // axios.get(`http://localhost:8000/api/resume/${id}/`, config).then((res) => {
       // debugger
       // axios.get(` ${NGROK_URL}/api/resume/${id}/`, config).then((res) => {
       setdata([res.data])
@@ -72,7 +72,6 @@ export default function Resume1() {
           {
 
             data1.map((items) => {
-              // debugger
               return (
                 <>
                   <div className='top'>
@@ -173,6 +172,8 @@ export default function Resume1() {
                       </div>
                     </div>
                     <div className='' style={{ width: "55%" }}>
+                      {
+                        items.Experience[0]===undefined?"":
                       <div className='address1 pt-5'>
                         <h3>EXPERIENCE</h3><br />
                         {
@@ -182,10 +183,11 @@ export default function Resume1() {
 
                               <h5>{items.Experience[0].job_title} in {items.Experience[0].Company_name} {items.Experience[0].city},{items.Experience[0].country}</h5>
                               <h5>{items.Experience[0].project_name}</h5>
-
-                              {/* <p>{items.Experience[0].job_discription}</p> */}
+                             
+                              
+                                {/* <p>{items.Experience[0].job_discription}</p> */}
                               {
-                                getdata === null ? "" :
+                                getdata === null ?  <p>{items.Experience[0].job_discription}</p> :
                                   getdata.map((item, key) => {
                                     return (
                                       <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item.slice(1, item.length - 1)}</p>
@@ -482,6 +484,7 @@ export default function Resume1() {
 
 
                       </div>
+                      }
                       <div className='address1'>
                         <h3>SKILLS</h3><br />
                         <div className='add_containt'>

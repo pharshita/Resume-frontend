@@ -33,7 +33,7 @@ export default function Education_form() {
     axios.post(`${BASE_URL}/api/education/`, data,config)
     // axios.post(`${NGROK_URL}/api/education/`,data,config)
       .then((res) => {
-        console.log(res)
+        // console.log(res)
         document.getElementById("nextbtnid").style.display = "block"
         document.getElementById("nextbtnid").style.backgroundColor = "#32a2a8"
         document.getElementById("addmorebtn").style.display = "block"
