@@ -95,7 +95,6 @@ export default function Experience_form2() {
                 // console.log(res)
                 window.localStorage.setItem('data2', JSON.stringify(inputData))
                 document.getElementById("nextbtnid").style.display = "block"
-                document.getElementById("nextbtnid").style.backgroundColor = "#32a2a8"
                 document.getElementById("addmorebtn").style.display = "block"
                 document.getElementById("savebtnid").style.display = "none"
             }).catch((err) => {
@@ -429,7 +428,7 @@ export default function Experience_form2() {
                                 sx={{ width: "230px" }} />
                         </div>
                         <div className=' mt-2'>
-                            <button onClick={openBox} style={{ backgroundColor: "#806c53", border: "none", padding: "7px 10px", color: "white" }}>Add More Points</button>
+                            <button onClick={openBox} style={{ backgroundColor: "#cbb78d", border: "none", padding: "7px 10px", color: "black" }}>Add More Points</button>
                         </div>
 
                     </div>
@@ -455,12 +454,14 @@ export default function Experience_form2() {
                 <div className='navtab1 d-flex mt-3 ml-3' >
 
                     <div className='btn2'>
-                        <Link to="/all_resume"><button id="nextbtnid" style={{ display: "none" }} className="nextbtn">Show Resume</button></Link>
+                    <Link to="/all_resume"><button id="nextbtnid" style={{ display: "none",backgroundColor:"#588eb0" }} className="nextbtn">Show Resume</button></Link>
+
                         <button onClick={savedata} id="savebtnid" style={{ display: "block" }}>Submit Form</button>
 
                     </div>
                     <div className='btn'>
-                        <button onClick={opennewbox} id="addmorebtn" className='btn btn-primary' style={{ display: "none", backgroundColor: "blue" }}>+</button>
+                    <button onClick={opennewbox} id="addmorebtn" className='btn btn-primary' style={{ display: "none", backgroundColor: "#cbb78d",color:"black" }}>+</button>
+
                     </div>
 
 

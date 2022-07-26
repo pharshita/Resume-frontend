@@ -63,7 +63,9 @@ export default function Resume7() {
                                                     <div >
 
                                                         <ul>
-                                                            <li>{items.skills[0]}</li>
+                                                        {
+                                                        items.skills[0] === undefined ? "" : <li>{items.skills[0]}</li>
+                                                    }
                                                             {
                                                                 items.skills[1] === undefined ? "" : <li>{items.skills[1]}</li>
                                                             }
@@ -130,6 +132,7 @@ export default function Resume7() {
 
                                                             {/* <p>{items.Experience[0].job_discription}</p> */}
                                                             {
+                                                                getdata === null ?  <p>{items.Experience[0].job_discription}</p> :
                                                                 getdata.map((item, key) => {
                                                                     return (
                                                                         <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item.slice(1, item.length - 1)}</p>
@@ -158,6 +161,7 @@ export default function Resume7() {
 
                                                                     {/* <p>{items.Experience[1].job_discription}</p> */}
                                                                     {
+                                                                        getdata2 === null ?  <p>{items.Experience[1].job_discription}</p> :
                                                                         getdata2.map((item1, key) => {
                                                                             return (
                                                                                 <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item1.slice(1, item1.length - 1)}</p>
@@ -185,6 +189,7 @@ export default function Resume7() {
 
                                                                     {/* <p>{items.Experience[2].job_discription}</p> */}
                                                                     {
+                                                                        getdata3 === null ?  <p>{items.Experience[2].job_discription}</p> :
                                                                         getdata3.map((item2, key) => {
                                                                             return (
                                                                                 <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item2.slice(1, item2.length - 1)}</p>
@@ -213,7 +218,7 @@ export default function Resume7() {
                                                                     {/* <p>{items.Experience[3].job_discription}</p> */}
 
                                                                     {
-                                                                        getdata4 === null ? " " :
+                                                                        getdata4 === null ? <p>{items.Experience[3].job_discription}</p> :
                                                                             getdata4.map((item3, key) => {
                                                                                 return (
                                                                                     <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item3.slice(1, item3.length - 1)}</p>
@@ -242,7 +247,7 @@ export default function Resume7() {
                                                                     {/* <p>{items.Experience[4].job_discription}</p> */}
 
                                                                     {
-                                                                        getdata5 === null ? " " :
+                                                                        getdata5 === null ? <p>{items.Experience[4].job_discription}</p> :
                                                                             getdata5.map((item4, key) => {
                                                                                 return (
                                                                                     <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item4.slice(1, item4.length - 1)}</p>
@@ -262,7 +267,8 @@ export default function Resume7() {
                                             <div>
                                                 <h3 style={{ color: "#00a4bf", marginTop: "50px" }}>Education</h3>
                                                 <div >
-
+                                                     {
+                                                  items.Education[0] === undefined ? "" :
                                                     <div className='d-flex pt-4'>
                                                         <div style={{ width: "30%" }}>
                                                             <p style={{ fontWeight: "bold" }}>{items.Education[0].start_date} to {items.Education[0].end_date}</p>
@@ -273,6 +279,7 @@ export default function Resume7() {
                                                             <h5>{items.Education[0].school_name},{items.Education[0].school_location}</h5>
                                                         </div>
                                                     </div>
+                                                     }
                                                     {
                                                         items.Education[1] === undefined ? "" :
                                                             <div className='d-flex pt-4'>

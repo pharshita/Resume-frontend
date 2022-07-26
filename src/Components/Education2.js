@@ -38,7 +38,6 @@ export default function Education2() {
       .then((res) => {
         // console.log(res)
         document.getElementById("nextbtnid").style.display = "block"
-        document.getElementById("nextbtnid").style.backgroundColor = "#32a2a8"
         document.getElementById("addmorebtn").style.display = "block"
         document.getElementById("savebtnid").style.display = "none"
       }).catch((err) => {
@@ -72,7 +71,7 @@ export default function Education2() {
 
         <div className='col-lg-2 col-md-2 col-sm-12 mt-3'>
 
-          <TextField id="outlined-basic" label="School name" variant="outlined" className='dateformate1'
+          <TextField id="outlined-basic" label="School name " variant="outlined" className='dateformate1'
             value={Educationdata.school_name} onChange={handleOnChange} name="school_name" autoComplete="off"
           />
         </div>
@@ -128,7 +127,7 @@ export default function Education2() {
               <button onClick={saveEducationdata} id="savebtnid" style={{ display: "block" }}>Save</button>
             </div>
             <div className='btn' >
-              <button onClick={opennewbox} id="addmorebtn" className='btn btn-primary' style={{ display: "none", backgroundColor: "blue", color: "white" }}>+</button>
+              <button onClick={opennewbox} id="addmorebtn" style={{ display: "none", backgroundColor: "#cbb78d", color: "black" }}>+</button>
             </div>
 
           </div>

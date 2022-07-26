@@ -90,6 +90,7 @@ export default function Resume10() {
 
                                                     {/* <p>{items.Experience[0].job_discription}</p> */}
                                                     {
+                                                        getdata === null ?  <p>{items.Experience[0].job_discription}</p> :
                                                         getdata.map((item, key) => {
                                                             return (
                                                                 <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item.slice(1, item.length - 1)}</p>
@@ -111,6 +112,7 @@ export default function Resume10() {
 
                                                                 {/* <p>{items.Experience[1].job_discription}</p> */}
                                                                 {
+                                                                    getdata2 === null ?  <p>{items.Experience[1].job_discription}</p> :
                                                                     getdata2.map((item1, key) => {
                                                                         return (
                                                                             <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item1.slice(1, item1.length - 1)}</p>
@@ -135,6 +137,7 @@ export default function Resume10() {
 
                                                                 {/* <p>{items.Experience[2].job_discription}</p> */}
                                                                 {
+                                                                    getdata3 === null ?  <p>{items.Experience[2].job_discription}</p> :
                                                                     getdata3.map((item2, key) => {
                                                                         return (
                                                                             <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item2.slice(1, item2.length - 1)}</p>
@@ -159,7 +162,7 @@ export default function Resume10() {
                                                                 {/* <p>{items.Experience[3].job_discription}</p> */}
 
                                                                 {
-                                                                    getdata4 === null ? " " :
+                                                                    getdata4 === null ? <p>{items.Experience[3].job_discription}</p> :
                                                                         getdata4.map((item3, key) => {
                                                                             return (
                                                                                 <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item3.slice(1, item3.length - 1)}</p>
@@ -182,7 +185,7 @@ export default function Resume10() {
                                                                 <h5>{items.Experience[4].project_name}</h5>
                                                                 {/* <p>{items.Experience[4].job_discription}</p> */}
                                                                 {
-                                                                    getdata5 === null ? " " :
+                                                                    getdata5 === null ? <p>{items.Experience[4].job_discription}</p> :
                                                                         getdata5.map((item4, key) => {
                                                                             return (
                                                                                 <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item4.slice(1, item4.length - 1)}</p>
@@ -206,7 +209,7 @@ export default function Resume10() {
 
                                                                 {/* <p>{items.Experience[5].job_discription}</p> */}
                                                                 {
-                                                                    getdata6 === null ? "" :
+                                                                    getdata6 === null ? <p>{items.Experience[5].job_discription}</p> :
                                                                         getdata6.map((item5, key) => {
                                                                             return (
                                                                                 <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item5.slice(1, item5.length - 1)}</p>
@@ -231,7 +234,7 @@ export default function Resume10() {
                                                                 {/* <p>{items.Experience[6].job_discription}</p> */}
 
                                                                 {
-                                                                    getdata7 === null ? "" :
+                                                                    getdata7 === null ? <p>{items.Experience[6].job_discription}</p> :
                                                                         getdata7.map((item6, key) => {
                                                                             return (
                                                                                 <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item6.slice(1, item6.length - 1)}</p>
@@ -256,7 +259,7 @@ export default function Resume10() {
                                                                 {/* <p>{items.Experience[6].job_discription}</p> */}
 
                                                                 {
-                                                                    getdata8 === null ? "" :
+                                                                    getdata8 === null ? <p>{items.Experience[7].job_discription}</p> :
                                                                         getdata8.map((item7, key) => {
                                                                             return (
                                                                                 <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item7.slice(1, item7.length - 1)}</p>
@@ -281,7 +284,7 @@ export default function Resume10() {
                                                                 {/* <p>{items.Experience[8].job_discription}</p> */}
 
                                                                 {
-                                                                    getdata9 === null ? "" :
+                                                                    getdata9 === null ? <p>{items.Experience[8].job_discription}</p> :
                                                                         getdata9.map((item8, key) => {
                                                                             return (
                                                                                 <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item8.slice(1, item8.length - 1)}</p>
@@ -305,7 +308,7 @@ export default function Resume10() {
 
                                                                 {/* <p>{items.Experience[9].job_discription}</p> */}
                                                                 {
-                                                                    getdata10 === null ? "" :
+                                                                    getdata10 === null ? <p>{items.Experience[9].job_discription}</p> :
                                                                         getdata10.map((item9, key) => {
                                                                             return (
                                                                                 <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item9.slice(1, item9.length - 1)}</p>
@@ -329,7 +332,7 @@ export default function Resume10() {
 
                                                                 {/* <p>{items.Experience[10].job_discription}</p> */}
                                                                 {
-                                                                    getdata11 === null ? "" :
+                                                                    getdata11 === null ? <p>{items.Experience[10].job_discription}</p> :
                                                                         getdata11.map((item10, key) => {
                                                                             return (
                                                                                 <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item10.slice(1, item10.length - 1)}</p>
@@ -353,7 +356,7 @@ export default function Resume10() {
 
                                                                 {/* <p>{items.Experience[11].job_discription}</p> */}
                                                                 {
-                                                                    getdata12 === null ? "" :
+                                                                    getdata12 === null ? <p>{items.Experience[11].job_discription}</p> :
                                                                         getdata12.map((item11, key) => {
                                                                             return (
                                                                                 <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item11.slice(1, item11.length - 1)}</p>
@@ -371,7 +374,10 @@ export default function Resume10() {
                                                 <h5 style={{ fontWeight: "bold", paddingLeft: "40px", marginTop: "50px" }}>Skills</h5>
 
                                                 <div style={{ padding: "10px 10px 10px 80px" }}>
-                                                    <p style={{ marginBottom: "0px" }}>{items.skills[0]}</p>
+                                                   {
+                                                    items.skills[0]===undefined?"":<p style={{ marginBottom: "0px" }}>{items.skills[0]}</p>
+                                                   }
+                                                    
                                                     {
                                                         items.skills[1] === undefined ? "" : <p style={{ marginBottom: "0px" }}>{items.skills[1]}</p>
                                                     }
@@ -425,12 +431,16 @@ export default function Resume10() {
                                             <div>
 
                                                 <h5 style={{ fontWeight: "bold" }}>Education</h5>
+                                                {
+                                                  items.Education[0] === undefined ? "" :
+
                                                 <div style={{ padding: "10px " }}>
                                                     <h5 style={{ fontSize: "17px" }}>{items.Education[0].school_name},{items.Education[0].school_location}</h5>
                                                     <p style={{ fontSize: "14px" }}>({items.Education[0].start_date} to {items.Education[0].end_date})</p>
                                                     <p>{items.Education[0].degree}</p>
                                                     <p>{items.Education[0].field_of_study}</p>
                                                 </div >
+                                                }
                                                 {
                                                     items.Education[1] === undefined ? "" :
                                                         <>

@@ -100,7 +100,6 @@ export default function Sample_Experience() {
                 // console.log(res)
                 window.localStorage.setItem('data', JSON.stringify(inputData))
                 document.getElementById("nextbtnid").style.display = "block"
-                document.getElementById("nextbtnid").style.backgroundColor = "#32a2a8"
                 document.getElementById("addmorebtn").style.display = "block"
                 document.getElementById("savebtnid").style.display = "none"
                 document.getElementById("skipdata").style.display = "none"
@@ -433,12 +432,12 @@ export default function Sample_Experience() {
                             <TextField id="outlined-basic" className="removedata" label="Your Roles" variant="outlined" onChange={handlechangedata} value={discriptionData} autoComplete="off"
                                 sx={{ width: "230px" }} />
                         </div>
-                        <div className=' mt-2'>
-                            <button onClick={openBox} style={{ backgroundColor: "#806c53", border: "none", padding: "7px 10px", color: "white" }}>Add More Points</button>
+                        <div className=' mt-2 ml-1'>
+                            <button onClick={openBox} style={{ backgroundColor: "#cbb78d", border: "none", padding: "7px 10px", color: "black" }}>Add More Points</button>
                         </div>
 
                     </div>
-                    <div className='points col-lg-7  col-md-7  col-sm-12  mt-3 text-left mb-3'>
+                    <div className='points col-lg-12  col-md-12  col-sm-12  mt-3 text-left mb-3'>
 
                         {
 
@@ -460,13 +459,13 @@ export default function Sample_Experience() {
                 <div className='navtab1 d-flex mt-3 ml-3' >
 
                     <div className='btn2'>
-                        <Link to="/all_resume"><button id="nextbtnid" style={{ display: "none" }} className="nextbtn">Show Resume</button></Link>
+                        <Link to="/all_resume"><button id="nextbtnid" style={{ display: "none",backgroundColor:"#588eb0" }} className="nextbtn">Show Resume</button></Link>
                         <button onClick={savedata} id="savebtnid" style={{ display: "block" }}>Submit Form</button>
                         <div id="skipdata" style={{ marginLeft: "20px", display: "block" }}>  <Link to="/all_resume"><button>Skip..</button></Link></div>
 
                     </div>
                     <div className='btn'>
-                        <button onClick={opennewbox} id="addmorebtn" className='btn btn-primary' style={{ display: "none", backgroundColor: "blue" }}>+</button>
+                        <button onClick={opennewbox} id="addmorebtn" className='btn btn-primary' style={{ display: "none", backgroundColor: "#cbb78d",color:"black" }}>+</button>
                     </div>
 
 

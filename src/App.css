@@ -99,7 +99,7 @@ html{
 .header{
   text-align: center;
   overflow: hidden;
-  background-color: #4b85aaed;
+  background-color: #6426ea;
   color: white;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -111,7 +111,7 @@ html{
  margin-top: 30px;
 }
 .new{
-  background-color: #4b85aaed;
+  background-color: #6426ea;
   height: 1150px;
   overflow: hidden;
 }
@@ -131,7 +131,6 @@ html{
 .new .current a{
   color: black;
 }
-
 .new li {
   font-size: 17px;
   padding: 10px 20px;
@@ -244,7 +243,7 @@ html{
 }
 .navtab1 .btn2 button{
   padding: 10px 20px;
-  background-color: rgb(88 142 176);
+  background-color: #6426ea;
   border: none;
   color: white;
   /* margin-right: -30px; */
@@ -386,12 +385,14 @@ input[type=file]::file-selector-button {
 .signupform{
   justify-content: center;
   display: flex;
+  /* background-image: linear-gradient(#6328eb, #9e0ef1); */
 }
 .signupimg{
   /* background-image:url("images/signup_banner.png"); */
-  background-image: url("images/signup_banner_img.jpg");
+  background-image: url("images/xyz.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100vh;
 }
 
 
@@ -404,84 +405,128 @@ border-radius: 10px;
 border-right: 1px solid rgba( 255, 255, 255, 0.18 ); */
 border-right: 1px solid #4a4a4a;
 }
-.signin_containt{
-  /* background-image: url("images/signin.jpg");
-  background-repeat: no-repeat;
-  background-size: cover; */
-  color: white;
-  padding: 80px;
-  margin: 250px;
-  background-color: #2a6da563;
-}
-.banner{
-  background-image: url("images/signin.jpg");
+
+.signupbg{
+  background-image: url("images/xyz.jpg");  
   background-repeat: no-repeat;
   background-size: cover;
-
-
 }
-/* .signupbg{
-  background-image: linear-gradient(45deg, #117a8b 0%, #103d6f 100%);  
-  padding: 20px;
-} */
 .signup_containt{
   /* background-color: #FBDA61; */
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
   font-size: 18px;
-  padding: 18px 30px;
-  /* margin: 53px; */
-  background-color: #4b85aaed;
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 9px );
--webkit-backdrop-filter: blur( 6px );
-/* border-radius: 10px; */
-border: 1px solid rgba( 255, 255, 255, 0.18 );
+  font-family: 'Gulzar', serif;
+  padding: 15px 30px;
+/* backdrop-filter: blur( 9px ); */
+/* -webkit-backdrop-filter: blur( 6px ); */
+
+}
+.sign{
+  display: flex;
+  justify-content: center;
 }
 .signup_containt input{
   border-radius: 30px;
-  height: 50px;
-}
-.signin_containt input{
-  background: rgba(255, 255, 255, 0.1 );
-  box-shadow: 0 8px 32px 0 rgba(205, 207, 212, 0.37);
-  backdrop-filter: blur( 9px );
-  -webkit-backdrop-filter: blur( 4px );
-  border-radius: 30px;
-  height: 50px;
-  color: white;
-}
-
-.signin_containt button{
-  text-align: center;
-  display: flex;
-  background-color: #0f7aed;
-  justify-content: center;
-  border-radius: 30px;
-  padding: 10px;
-  color: white;
+    height: 42px;
+    background-color: transparent;
+    color: white;
+    box-shadow: 0px 0px 41px #c5c3c382;
+    border: none;
 
 }
+.formdata{
+  background-color: white;
+  border-radius: 30px ;
+  padding: 20px 30px;
+  color: rgb(4, 46, 112);
+  width: 100%;
+  font-family: 'Montserrat';
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.formdata{
+  background-color: white;
+  padding: 20px 40px;
+  box-shadow: 0px 0px 34px #0d0d0d91;
+}
+
+
 .signup_containt button{
   text-align: center;
   display: flex;
-  background-color: #483d2d;
   justify-content: center;
-  border-radius: 30px;
+  border-radius: 10px;
   padding: 10px;
-  color: white;
-  font-size: 18px;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  width: 30%;
+  border: 1px solid rgb(255, 255, 255);
+  background-color: rgb(3, 37, 71);
 
+}
+.signin_containt button{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 10px;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  width: 30%;
+  border: 1px solid rgb(255, 255, 255);
+  background-color: rgb(80 52 92);
+}
+.signin_containt input{
+  border-radius: 30px;
+  height: 42px;
+  background-color: transparent;
+  color: white;
+  box-shadow: 0px 0px 41px #c5c3c382;
+  border: none;
+}
+.signin_containt h4{
+  font-weight: 700;
+  text-align: center;
+  margin: 30px;
+  font-size: 30px;
+}
+.signbtn{
+  justify-content: center;
+  display: flex;
 }
 .resume8 p{
   font-size: 16px;
 }
-
-.signup_containt button:hover{
-  background-color: #806c53;
-  color: white;
+.banner{
+  background-image: url("./images/banner.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-items: center;
+  height: 100vh;
+  position: relative;
 }
+.signin{
+  display: flex;
+  justify-content: center;
+}
+.signinrow{
+  width: 80%;
+  padding-top: 170px;
+}
+
+.signin_containt{
+  background-color: white;
+  padding: 20px 30px;
+  color: rgb(4, 46, 112);
+  width: 100%;
+  font-family: 'Montserrat';
+  font-size: 18px;
+  font-weight: 600;
+}
+
 
 .dropbtn2{
   padding: 20px;
@@ -665,7 +710,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 .navtab .btn1 button{
   padding: 10px 20px;
-  background-color: rgb(88 142 176);
+  background-color: #6426ea;
   border: none;
   color: white;
 }
@@ -680,7 +725,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
   margin-top: 50px;
 }
 .tab td{
-  padding:  30px 30px;
+  padding:  30px 40px;
   text-align: left;
 }
 .head th{
@@ -759,6 +804,25 @@ tbody tr div button{
 }
 .namedata #education{
   width: 300px;
+}
+.signup_containt button {
+  width: 50%;
+}
+.have{
+  text-align: center;
+}
+.signin_containt h4 {
+  margin: 15px;
+}
+.signin_containt button {
+  width: 50%;
+}
+.signinimg{
+  height: 152px;
+}
+.signinrow {
+  width: 100%;
+  padding-top: 90px;
 }
 }
 

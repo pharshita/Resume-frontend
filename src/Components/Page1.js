@@ -4,25 +4,36 @@ import axios from 'axios'
 import { BASE_URL} from '../config';
 import Logout from './Logout';
 import welcome from '../images/welcompage.png'
+import DeleteIcon from '@mui/icons-material/Delete';
+import DownloadIcon from '@mui/icons-material/Download';
 
 export default function Page1() {
 
   const config = { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
 
     const [data1, setdata] = useState([])
+    const [Status, setStatus] = useState([])
     useEffect(() => {
         axios.get(`http://127.0.0.1:8000/api/alldata/`, config).then((res) => {
           setdata(res.data)
         }).catch((err) => {
+          
             console.log(err)
         })
     }, [])
       // console.log(data1)
 
     function getID(e){
-      localStorage.setItem("id", parseInt(e.target.parentElement.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText))
+      localStorage.setItem("id", parseInt(e.target.parentElement.parentElement.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerHTML))
     }
-
+    
+    function Deletedata(e){
+      let deletid=parseInt(e.target.parentElement.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerHTML)
+      axios.delete(`http://127.0.0.1:8000/api/resume/${deletid}/`,config)
+      .then(() =>
+      setStatus('Delete successful'));
+        window.location.reload(false);
+    }
   return (
     <>
         <div className=' mt-5 mr-5 text-end'>
@@ -49,13 +60,13 @@ export default function Page1() {
                 <thead>
                     <tr className='head'>
                         <th>Name</th>
-                        <th>id</th>
-                        <th>profession</th>
+                        <th style={{display:"none"}}>id</th>
                         <th>Email</th>
+                        <th>profession</th>
                         <th>Mobile</th>
                         <th>country</th>
                         <th>Address</th>
-                        <th>Download</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -66,14 +77,16 @@ export default function Page1() {
                         <>
                        <tr style={{border:"1px solid black"}} id="datas">
                        <td key={key}>{item.first_name} {item.last_name}</td>
-                       <td key={key}>{item.id}</td>
-                       <td key={key}>{item.profession}</td>
+                       <td key={key} style={{display:"none"}}>{item.id}</td>
                        <td key={key}>{item.email}</td>
+                       <td key={key}>{item.profession}</td>
                        <td key={key}>{item.phone_number}</td>
                        <td key={key}>{item.country}</td>
                        <td key={key}>{item.city},{item.pin_code}</td>
-                       <div style={{display:"flex",marginTop:"25px"}}>
-                        <Link to="/all_resume"><button style={{padding:"2px"}} onClick={getID}>Download</button></Link> 
+                       <div style={{display:"flex",marginTop:"27px"}}>
+                        <Link to="/all_resume" style={{textDecoration:"none"}}><p style={{padding:"2px"}} onClick={getID}><i class="fa fa-download" style={{fontSize:"22px", marginTop:"3px",color:"#1bcd1b"}}></i></p></Link>
+                         {/* <button style={{padding:"2px",paddingLeft:"10px"}} onClick={Deletedata}>Delete</button> */}
+                         <p style={{padding:"2px",paddingLeft:"10px"}} onClick={Deletedata}><i class="fa fa-trash"style={{fontSize:"22px",color:"red"}}></i></p>
                        </div>
 
                        </tr>

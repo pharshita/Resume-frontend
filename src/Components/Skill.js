@@ -112,7 +112,7 @@ export default function Skill() {
                                     </div>
 
                                     <div className='col-lg-2 col-md-2 col-sm-12 ' >
-                                        <button onClick={openBox} style={{backgroundColor: "#806c53",border:"none",padding:"10px 20px",color:"white"}}>Add More</button>
+                                        <button onClick={openBox} style={{backgroundColor: "#cbb78d",border:"none",padding:"10px 20px"}}>Add More</button>
                                     </div>
                                 </div>
 

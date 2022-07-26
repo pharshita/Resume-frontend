@@ -49,7 +49,7 @@ export default function Resume8() {
 
                             return (
                                 <>
-                                    <div className='mt-5' style={{display:"flex",justifyContent:"space-between"}}>
+                                    <div className='mt-5' style={{ display: "flex", justifyContent: "space-between" }}>
                                         <div>
 
                                             <h4>{items.first_name} {items.last_name}</h4>
@@ -79,7 +79,9 @@ export default function Resume8() {
                                         <ul className='row pl-5 pt-3'>
                                             <div className='col-sm-6'>
 
-                                                <li>{items.skills[0]}</li>
+                                                {
+                                                    items.skills[0] === undefined ? "" : <li>{items.skills[0]}</li>
+                                                }
                                                 {
                                                     items.skills[1] === undefined ? "" : <li>{items.skills[1]}</li>
                                                 }
@@ -140,19 +142,23 @@ export default function Resume8() {
 
                                             </div>
                                             <hr></hr>
-                                            <div style={{ display: "flex", justifyContent: "space-between", padding: "10px 60px" }}>
-                                                <div>
-                                                    <h4>{items.Education[0].degree}</h4>
-                                                    <p>{items.Education[0].field_of_study}</p>
-                                                    <p>{items.Education[0].school_name},{items.Education[0].school_location}</p>
-                                                </div>
-                                                <div>
-                                                    <p >{items.Education[0].start_date} to {items.Education[0].end_date}</p>
+                                            {
+                                                items.Education[0] === undefined ? "" :
+
+                                                    <div style={{ display: "flex", justifyContent: "space-between", padding: "10px 60px" }}>
+                                                        <div>
+                                                            <h4>{items.Education[0].degree}</h4>
+                                                            <p>{items.Education[0].field_of_study}</p>
+                                                            <p>{items.Education[0].school_name},{items.Education[0].school_location}</p>
+                                                        </div>
+                                                        <div>
+                                                            <p >{items.Education[0].start_date} to {items.Education[0].end_date}</p>
 
 
-                                                </div>
+                                                        </div>
 
-                                            </div>
+                                                    </div>
+                                            }
                                             {
                                                 items.Education[1] === undefined ? "" :
                                                     <div style={{ display: "flex", justifyContent: "space-between", padding: "10px 60px" }}>
@@ -266,7 +272,7 @@ export default function Resume8() {
 
                                                             {/* <p>{items.Experience[0].job_discription}</p> */}
                                                             {
-                                                                getdata === null ? "" :
+                                                                getdata === null ? <p>{items.Experience[0].job_discription}</p> :
                                                                     getdata.map((item, key) => {
                                                                         return (
                                                                             <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item.slice(1, item.length - 1)}</p>
@@ -297,7 +303,7 @@ export default function Resume8() {
 
                                                                     {/* <p>{items.Experience[1].job_discription}</p> */}
                                                                     {
-                                                                        getdata2 === null ? "" :
+                                                                        getdata2 === null ? <p>{items.Experience[1].job_discription}</p> :
                                                                             getdata2.map((item1, key) => {
                                                                                 return (
                                                                                     <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item1.slice(1, item1.length - 1)}</p>
@@ -328,6 +334,7 @@ export default function Resume8() {
 
                                                                     {/* <p>{items.Experience[2].job_discription}</p> */}
                                                                     {
+                                                                        getdata3 === null ?  <p>{items.Experience[2].job_discription}</p> :
                                                                         getdata3.map((item2, key) => {
                                                                             return (
                                                                                 <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item2.slice(1, item2.length - 1)}</p>
@@ -355,7 +362,7 @@ export default function Resume8() {
                                                                     {/* <p>{items.Experience[3].job_discription}</p> */}
 
                                                                     {
-                                                                        getdata4 === null ? " " :
+                                                                        getdata4 === null ?  <p>{items.Experience[3].job_discription}</p> :
                                                                             getdata4.map((item3, key) => {
                                                                                 return (
                                                                                     <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item3.slice(1, item3.length - 1)}</p>
@@ -381,7 +388,7 @@ export default function Resume8() {
                                                                     <h5>{items.Experience[4].project_name}</h5>
                                                                     {/* <p>{items.Experience[4].job_discription}</p> */}
                                                                     {
-                                                                        getdata5 === null ? " " :
+                                                                        getdata5 === null ? <p>{items.Experience[4].job_discription}</p> :
                                                                             getdata5.map((item4, key) => {
                                                                                 return (
                                                                                     <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item4.slice(1, item4.length - 1)}</p>
@@ -408,7 +415,7 @@ export default function Resume8() {
 
                                                                     {/* <p>{items.Experience[5].job_discription}</p> */}
                                                                     {
-                                                                        getdata6 === null ? "" :
+                                                                        getdata6 === null ? <p>{items.Experience[5].job_discription}</p> :
                                                                             getdata6.map((item5, key) => {
                                                                                 return (
                                                                                     <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item5.slice(1, item5.length - 1)}</p>
@@ -436,7 +443,7 @@ export default function Resume8() {
                                                                     {/* <p>{items.Experience[6].job_discription}</p> */}
 
                                                                     {
-                                                                        getdata7 === null ? "" :
+                                                                        getdata7 === null ? <p>{items.Experience[6].job_discription}</p> :
                                                                             getdata7.map((item6, key) => {
                                                                                 return (
                                                                                     <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item6.slice(1, item6.length - 1)}</p>
@@ -464,7 +471,7 @@ export default function Resume8() {
                                                                     {/* <p>{items.Experience[7].job_discription}</p> */}
 
                                                                     {
-                                                                        getdata8 === null ? "" :
+                                                                        getdata8 === null ? <p>{items.Experience[7].job_discription}</p> :
                                                                             getdata8.map((item7, key) => {
                                                                                 return (
                                                                                     <p>&nbsp;&nbsp;&nbsp;&nbsp; • {item7.slice(1, item7.length - 1)}</p>

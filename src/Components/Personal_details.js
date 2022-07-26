@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import Const from './Const';
 import { BASE_URL, NGROK_URL } from '../config';
 
 export default function Personal_details() {
@@ -477,7 +476,7 @@ function Validatepincode() {
               
                 <div className='btn col-lg-9 col-sm-12' >
 
-                    <button onClick={SavePersonalData} id="savebtnid" style={{ display: "block", padding:" 10px 20px",backgroundColor: "#353232",border: "none",color: "white",marginRight: "-30px" }}>Save</button>
+                    <button onClick={SavePersonalData} id="savebtnid" style={{ display: "block", padding:" 10px 20px",backgroundColor: "#6426ea",border: "none",color: "white",marginRight: "-30px" }}>Save</button>
                     {/* <Link to="/education"><button id="nextbtnid" style={{ display: "none", padding:" 10px 20px",backgroundColor: "#353232",border: "none",color: "white",marginRight: "-30px" }} className="nextbtn">Next</button></Link> */}
                 </div>
                </div>

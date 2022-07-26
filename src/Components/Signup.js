@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import Const from './Const'
 import { BASE_URL } from '../config'
 import signup_banner from '../images/signup_banner.png'
 
@@ -91,6 +90,9 @@ export default function Signup(props) {
         if (!expr.test(email1)) {
             lblError.innerHTML = "Invalid email please use @gmail.com.";
         }
+        
+       
+
     }
     function Validatephone() {
         var phoneError = document.getElementById("phoneError");
@@ -105,30 +107,31 @@ export default function Signup(props) {
     }
     return (
         <div className='signupbg'>
-                <div className='row' style={{display:"flex"}}>
-
-                    <div className='col-sm-6  signupimg' >
-                        {/* <img src={signup_banner}></img> */}
-                    </div>
-
-                <div className='col-sm-6 signupform' >
+            <div className="col-12" style={{display:'flex',justifyContent:'flex-end',background:"#00000070",padding:'0px',margin:"0px",height:"100vh"}}>
+           <div className="row">
+            
+           </div>
+           <div className="col-6" style={{display:'flex',justifyContent:'center',alignItems:'center',background:'rgb(87 89 255 / 51%)'}}>
+            <h1 style={{fontFamily:'sans-serif',fontSize:'9vw',fontWeight:700,lineHeight:1,color:'#ffd69a'}}>BUILD YOUR RESUME</h1>
+           </div>
+            <div className='col-sm-6 signupform' >
                     <div className='row signup_containt' >
 
-                        <div  style={{ textAlign: "center" }}>
-                            <h2 style={{fontFamily:"'Cormorant SC', serif"}}>Sign Up</h2>
-                        </div>
-                        <div className=' mt-5'>
-                            <form >
-                                <div className='row'>
+                        {/* <div  style={{ textAlign: "center" }}>
+                            <h2 style={{fontFamily:"Montserrat",paddingTop:"10px"}}>Sign Up</h2>
+                        </div> */}
+                        <div className='sign mt-4'>
+                            <form className='formdata'>
+                                <div className='row mt-4'>
 
                                     <div className='col-sm-6'>
-                                        <label>Firtsname</label>
-                                        <input className='form-control' type="text" style={{ width: "300px" }} value={name} onChange={nameHandler}></input>
+                                        <label>Firstname</label>
+                                        <input className='form-control' type="text" style={{ width: "auto" }} value={name} onChange={nameHandler}></input>
 
                                     </div>
                                     <div className='col-sm-6'>
                                         <label>Lastname</label>
-                                        <input className='form-control' type="text" style={{ width: "300px" }} value={lname} onChange={lnameHandler}></input>
+                                        <input className='form-control' type="text" style={{ width: "auto" }} value={lname} onChange={lnameHandler}></input>
 
                                     </div>
                                 </div>
@@ -155,23 +158,23 @@ export default function Signup(props) {
                                     <p style={{ display: "none", margin: "5px 10px" }} id="pass1">please enter valid password</p>
                                 </div>
                                 <div style={{ marginTop: "10px" }}>
-                                    <label>Conform Password</label>
+                                    <label>Confirm Password</label>
                                     <input className='form-control' type="password" value={pass2} onChange={pass2Handler}></input>
                                     <p style={{ display: "none", margin: "5px 10px" }} id="pass2">password not match</p>
                                 </div>
-                                <div className='mt-5'>
-                                    <button className='btn btn-block' onClick={submitHandler}>Signup</button>
+                                <div className='mt-4 signbtn'>
+                                    <button className='btn btn-outline-dark' onClick={submitHandler}>Signup</button>
                                 </div>
-                            </form>
+                        <div style={{justifyContent:"center",display:"flex",padding:'0px'}} >
+                            <p style={{marginTop:20,fontFamily:'Montserrat',marginLeft: "0px"}} className="have">Already Have An Account?<Link to="/signin" style={{ textDecoration: "none",textAlign:"center" }}><span style={{ color: "#743e31", textDecoration: "none" ,fontSize:"20px"}}> Sign in </span></Link></p>
                         </div>
-                        <div className='text-center' >
-                            <hr style={{ backgroundColor: "white", marginTop: "10px", textDecoration: "none" }}></hr>
-                            <p>Already Have An Account?<Link to="/signin" style={{ textDecoration: "none" }}><span style={{ color: "#fff", textDecoration: "none" }}> Sign in </span></Link></p>
+                            </form>
                         </div>
                     </div>
                 </div>
-
-                </div>
+            </div>
+            
+                
         </div>
     )
 }

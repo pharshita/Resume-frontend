@@ -26,11 +26,8 @@ import Resume8 from './Components/Resume8';
 import Resume9 from './Components/Resume9';
 import Resume10 from './Components/Resume10';
 import Resume11 from './Components/Resume11';
-import Test from './Components/Test';
-import Const from './Components/Const';
 import Education2 from './Components/Education2';
 import Page1 from './Components/Page1';
-import Table from './Components/Table';
 import Forgot_pass from './Components/Forgot_pass';
 import Change_password from './Components/Change_password';
 import Verify_code from './Components/Verify_code';
@@ -62,7 +59,6 @@ function App() {
           <Route path="/basic" element={<Basic />}></Route>
           <Route path="/profession" element={<Professional />}></Route>
           <Route path="/tamplates" element={<Tamplates />}></Route>
-          <Route path="/const" element={<Const/>}></Route>
           <Route path="/education2" element={<Education2/>}></Route>
           <Route path="/page1" element={<Page1/>}></Route>
           <Route path="/forgot_password" element={<Forgot_pass/>}></Route>

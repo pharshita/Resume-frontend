@@ -158,7 +158,7 @@ class Test extends React.Component {
     
             axios.post('http://127.0.0.1:8000/api/registers/', data)
             .then((res) => {
-                debugger
+                // debugger
             window.localStorage.setItem('id', JSON.stringify(res.data.id));
             window.location.href = "/signin";
     
