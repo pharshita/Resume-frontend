@@ -459,7 +459,7 @@ export default function Sample_Experience() {
                 <div className='navtab1 d-flex mt-3 ml-3' >
 
                     <div className='btn2'>
-                        <Link to="/all_resume"><button id="nextbtnid" style={{ display: "none",backgroundColor:"#588eb0" }} className="nextbtn">Show Resume</button></Link>
+                        <Link to="/all_resume"><button id="nextbtnid" style={{ display: "none",backgroundColor:"#6a1de2" }} className="nextbtn">Show Resume</button></Link>
                         <button onClick={savedata} id="savebtnid" style={{ display: "block" }}>Submit Form</button>
                         <div id="skipdata" style={{ marginLeft: "20px", display: "block" }}>  <Link to="/all_resume"><button>Skip..</button></Link></div>
 
