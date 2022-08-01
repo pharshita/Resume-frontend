@@ -2,42 +2,42 @@ import React  from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import Newfile from './Components/Newfile';
-import Education from './Components/Education';
-import SideNav from './Components/Sidenav';
-import Date from './Components/Date';
-import Skill from './Components/Skill';
-import Experience from './Components/Experience';
-import Resume1 from './Components/Resume1';
-import All_Resume from './Components/All_Resume';
-import Resume2 from './Components/Resume2';
-import Education_form from './Components/Education_form';
-import Signin from './Components/Signin';
-import Signup from './Components/Signup';
-import Resume3 from './Components/Resume3';
-import Resume4 from './Components/Resume4';
-import Resume5 from './Components/Resume5';
-import Resume6 from './Components/Resume6';
-import Resume7 from './Components/Resume7';
-import Basic from './Components/Basic';
-import Professional from './Components/Professional';
-import Tamplates from './Components/Tamplates';
-import Resume8 from './Components/Resume8';
-import Resume9 from './Components/Resume9';
-import Resume10 from './Components/Resume10';
-import Resume11 from './Components/Resume11';
-import Education2 from './Components/Education2';
-import Page1 from './Components/Page1';
-import Forgot_pass from './Components/Forgot_pass';
-import Change_password from './Components/Change_password';
-import Verify_code from './Components/Verify_code';
+import Newfile from './Containers/Newfile';
+import Education from './Containers/Education';
+import SideNav from './Containers/Sidenav';
+import Date from './Containers/Date';
+import Skill from './Containers/Skill';
+import Experience from './Containers/Experience';
+import Resume1 from './Containers/Resume1';
+import All_Resume from './Containers/All_Resume';
+import Resume2 from './Containers/Resume2';
+import Education_form from './Containers/Education_form';
+import Signin from './Containers/Signin';
+import Signup from './Containers/Signup';
+import Resume3 from './Containers/Resume3';
+import Resume4 from './Containers/Resume4';
+import Resume5 from './Containers/Resume5';
+import Resume6 from './Containers/Resume6';
+import Resume7 from './Containers/Resume7';
+import Basic from './Containers/Basic';
+import Professional from './Containers/Professional';
+import Tamplates from './Containers/Tamplates';
+import Resume8 from './Containers/Resume8';
+import Resume9 from './Containers/Resume9';
+import Resume10 from './Containers/Resume10';
+import Resume11 from './Containers/Resume11';
+import Education2 from './Containers/Education2';
+import Page1 from './Containers/Page1';
+import Forgot_pass from './Containers/Forgot_pass';
+import Change_password from './Containers/Change_password';
+import Verify_code from './Containers/Verify_code';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Signup />} ></Route>
+          <Route path='/signup' element={<Signup />} ></Route>
           <Route path='/signin' element={<Signin />}></Route>
           <Route path='/user' element={<SideNav />}></Route>
           <Route path='/education' element={<Education />}></Route>

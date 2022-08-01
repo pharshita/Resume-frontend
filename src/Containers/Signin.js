@@ -36,13 +36,15 @@ export default function Signin() {
     }
     return (
         <div className='banner'>
+            <div style={{background:"#00000070",height:"100vh"}}>
+
             <div className='container signin'>
                 <div className='row signinrow'>
                     <div className='col-sm-12 col-lg-6 col-md-6 p-0 signinimg'>
-                        <div style={{ background: "rgb(80 52 92)", height: "100%", padding: "0px 30px", color: "white", alignItems: "center", display: "flex" }}>
+                        <div style={{ background: "rgba(87, 89, 255, 0.51)", height: "100%", padding: "0px 30px", color: "white", alignItems: "center", display: "flex" }}>
                             <div>
-                                <h1 style={{ fontFamily: 'sans-serif', fontWeight: 700, lineHeight: 1.5, color: 'white' }}>Welcome Back !</h1>
-                                <p style={{ fontFamily: 'sans-serif', fontSize: '20px', fontWeight: 500, color: 'white' }}>Login To Continue</p>
+                                <h1 style={{ fontFamily: 'sans-serif', fontWeight: 700, lineHeight: 1.5, color: '#ffd69a',fontSize:"50px" }}>Welcome Back !</h1>
+                                <p style={{ fontFamily: 'sans-serif', fontSize: '30px', fontWeight: 600, color: '#ffd69a' }}>Login To Continue</p>
                             </div>
                         </div>
                     </div>
@@ -65,7 +67,7 @@ export default function Signin() {
                             <div className="mt-5" >
                                 <div className='row' style={{ justifyContent: "space-between" }}>
                                     <div className='col-sm-12 col-lg-7 col-md-7'>
-                                    <p>Not a Member?<Link to="/" style={{ textDecoration: "none" }}><span style={{ color: "#743e31" }}> Sign Up </span></Link></p>
+                                    <p>Not a Member?<Link to="/signup" style={{ textDecoration: "none" }}><span style={{ color: "#743e31" }}> Sign Up </span></Link></p>
                                     </div>
                                     <div className='col-sm-12 col-lg-5 col-md-5'>
                                     <Link to="/forgot_password" style={{ textDecoration: "none", color: "black" }}> <p>Forgot password</p></Link>
@@ -76,6 +78,7 @@ export default function Signin() {
                     </div>
                 </div>
 
+            </div>
             </div>
         </div>
     )

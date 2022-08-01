@@ -116,13 +116,17 @@ export default function Signup(props) {
            </div>
             <div className='col-sm-6 signupform' >
                     <div className='row signup_containt' >
+                  
 
                         {/* <div  style={{ textAlign: "center" }}>
                             <h2 style={{fontFamily:"Montserrat",paddingTop:"10px"}}>Sign Up</h2>
                         </div> */}
-                        <div className='sign mt-4'>
+                        <div className='sign'>
                             <form className='formdata'>
-                                <div className='row mt-4'>
+                            <div>
+                                <h4>SIGNUP</h4>
+                            </div>
+                                <div className='row mt-5'>
 
                                     <div className='col-sm-6'>
                                         <label>Firstname</label>
@@ -142,14 +146,14 @@ export default function Signup(props) {
                                 <div style={{ marginTop: "10px" }}>
                                     <label>Email</label>
                                     <input className='form-control' type="text" value={email} onChange={emailhandler} onKeyUp={ValidateEmail} id="txtEmail" autoComplete='off'></input>
-                                    <p style={{color:"red" }} id="lblError"></p>
+                                    <p style={{color:"red",fontSize:"15px" }} id="lblError"></p>
 
                                 </div>
 
                                 <div style={{ marginTop: "10px" }}>
                                     <label>Mobile number</label>
                                     <input className='form-control' type="number" value={num} onChange={numHandler} onKeyUp={Validatephone} ></input>
-                                    <p style={{color:"red" }} id="phoneError"></p>
+                                    <p style={{color:"red",fontSize:"15px" }} id="phoneError"></p>
 
                                 </div>
                                 <div style={{ marginTop: "10px" }}>
@@ -160,7 +164,7 @@ export default function Signup(props) {
                                 <div style={{ marginTop: "10px" }}>
                                     <label>Confirm Password</label>
                                     <input className='form-control' type="password" value={pass2} onChange={pass2Handler}></input>
-                                    <p style={{ display: "none", margin: "5px 10px" }} id="pass2">password not match</p>
+                                    <p style={{ display: "none", margin: "5px 10px",fontSize:"15px" }} id="pass2">password not match</p>
                                 </div>
                                 <div className='mt-4 signbtn'>
                                     <button className='btn btn-outline-dark' onClick={submitHandler}>Signup</button>

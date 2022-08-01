@@ -435,6 +435,12 @@ border-right: 1px solid #4a4a4a;
     border: none;
 
 }
+.signup_containt h4{
+  font-weight: 700;
+  text-align: center;
+  margin: 20px;
+  font-size: 25px;
+}
 .formdata{
   background-color: white;
   border-radius: 30px ;
@@ -463,7 +469,7 @@ border-right: 1px solid #4a4a4a;
   font-size: 20px;
   width: 30%;
   border: 1px solid rgb(255, 255, 255);
-  background-color: rgb(3, 37, 71);
+  background-color: rgba(87, 90, 255, 0.855);
 
 }
 .signin_containt button{
@@ -476,7 +482,7 @@ border-right: 1px solid #4a4a4a;
   font-size: 20px;
   width: 30%;
   border: 1px solid rgb(255, 255, 255);
-  background-color: rgb(80 52 92);
+  background-color: rgba(87, 90, 255, 0.855);
 }
 .signin_containt input{
   border-radius: 30px;
@@ -489,7 +495,7 @@ border-right: 1px solid #4a4a4a;
   font-weight: 700;
   text-align: center;
   margin: 30px;
-  font-size: 30px;
+  font-size: 25px;
 }
 .signbtn{
   justify-content: center;
@@ -499,7 +505,9 @@ border-right: 1px solid #4a4a4a;
   font-size: 16px;
 }
 .banner{
-  background-image: url("./images/banner.jpg");
+  /* background-image: url("./images/banner.jpg"); */
+  /* background: linear-gradient(60deg, rgb(82, 63, 255) 0%, rgb(117, 14, 213) 100%); */
+  background-image: url("./images/xyz.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   align-items: center;
